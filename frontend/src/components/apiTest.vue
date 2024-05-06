@@ -17,7 +17,7 @@ export default defineComponent({
   methods: {
     async makeAPICall() {
       try {
-        const response = await fetch('https://api.example.com/data');
+        const response = await fetch('http://127.0.0.1:8000');
         const data = await response.json();
         console.log(data);
       } catch (error) {
