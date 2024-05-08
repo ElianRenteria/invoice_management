@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1>Sign Up Page</h1>
+    <h1>Sign Up</h1>
   </div>
 </template>
   
@@ -9,7 +9,7 @@
   import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
   
   export default defineComponent({
-    name: "LoginView",
+    name: "SignUpView",
     components: {
       apiTest,
     },
