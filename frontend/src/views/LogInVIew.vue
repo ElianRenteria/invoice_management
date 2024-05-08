@@ -17,7 +17,7 @@
       <InputText placeholder="Password" />
     </InputGroup>
      <!--Send Button-->
-     <apiTest msg="Log In" />
+     <apiTest msg="Log In" class="button"/>
   </div>
 </template>
 
@@ -48,7 +48,7 @@
     margin-bottom: 5%;
   }
 
-  button {
+  .button {
     margin-top: 5%;  
   }
 </style>
