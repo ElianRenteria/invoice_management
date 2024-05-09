@@ -4,9 +4,9 @@
     <!--Username-->
     <InputGroup>
       <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-envelope"></i>
       </InputGroupAddon>
-      <InputText placeholder="Username" />
+      <InputText placeholder="Email" />
     </InputGroup>
     <br>
      <!--Password-->

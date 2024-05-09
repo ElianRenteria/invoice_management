@@ -17,20 +17,20 @@
       <InputText placeholder="Username" />
     </InputGroup>
     <br>
+    <!--Email-->
+    <InputGroup>
+      <InputGroupAddon>
+          <i class="pi pi-envelope"></i>
+      </InputGroupAddon>
+      <InputText type="text" placeholder="Email" id="confirmPass"/>
+    </InputGroup>
+    <br>
      <!--Password-->
     <InputGroup>
       <InputGroupAddon>
           <i class="pi pi-key"></i>
       </InputGroupAddon>
       <InputText placeholder="Password" id="pass"/>
-    </InputGroup>
-    <br>
-    <!--Confirm Password-->
-    <InputGroup>
-      <InputGroupAddon>
-          <i class="pi pi-sync"></i>
-      </InputGroupAddon>
-      <InputText type="text" placeholder="Confirm Password" id="confirmPass"/>
     </InputGroup>
      <!--Send Button-->
      <apiTest msg="Sign Up" class="button"/>
@@ -55,8 +55,6 @@
     methods: {
       matchPasswords() {
         const pass = document.getElementById("pass");
-        const confirmPass = document.getElementById("confirmPass");
-        
       }
     }
   });

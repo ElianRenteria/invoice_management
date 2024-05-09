@@ -1,5 +1,5 @@
 <template>
-  <Button label={{this.msg}} @click="makeAPICall" rounded/>
+  <Button label={msg} :class="{msg}" @click="makeAPICall" rounded/>
 </template>
 
 <script lang="ts">
