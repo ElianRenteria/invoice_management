@@ -33,7 +33,7 @@
       <InputText placeholder="Password" id="pass"/>
     </InputGroup>
      <!--Send Button-->
-     <apiTest msg="Sign Up" class="button"/>
+     <LogSignButton :logIn=true link="http://127.0.0.1:8000/login/" class="button"/>
   </div>
 </template>
   
@@ -43,6 +43,7 @@
   import InputGroup from 'primevue/inputgroup';
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
+  import LogSignButton from "@/components/LogSignButton.vue";
 
   export default defineComponent({
     name: "SignUpView",
@@ -50,7 +51,8 @@
       apiTest,
       InputGroup,
       InputGroupAddon,
-      InputText
+      InputText,
+      LogSignButton
     },
     methods: {
       matchPasswords() {

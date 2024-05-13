@@ -17,13 +17,14 @@
       <InputText placeholder="Password" />
     </InputGroup>
      <!--Send Button-->
-     <apiTest msg="Log In" class="button"/>
+     <LogSignButton :logIn=true link="http://127.0.0.1:8000/login/" class="button"/>
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent } from "vue";
   import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
+  import LogSignButton from "@/components/LogSignButton.vue"; 
   import InputGroup from 'primevue/inputgroup';
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
@@ -34,7 +35,8 @@
       apiTest,
       InputGroup,
       InputGroupAddon,
-      InputText
+      InputText,
+      LogSignButton
     },
   });
 </script>

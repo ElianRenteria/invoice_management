@@ -14,9 +14,9 @@ async def home(request: Request):
 async def data(request: Request):
 	return {"data": "Success"}
 
-@pages_router.get("/login")
+@pages_router.get("/login/")
 async def login(request: Request):
-	pass
+	return {"data": "Loggin in"}
 
 @pages_router.get("/signup")
 async def signup(request: Request):
