@@ -6,7 +6,7 @@
       <InputGroupAddon>
           <i class="pi pi-envelope"></i>
       </InputGroupAddon>
-      <InputText placeholder="Email" />
+      <InputText placeholder="Email" v-model="email"/>
     </InputGroup>
     <br>
      <!--Password-->
@@ -14,7 +14,7 @@
       <InputGroupAddon>
           <i class="pi pi-key"></i>
       </InputGroupAddon>
-      <InputText placeholder="Password" />
+      <InputText placeholder="Password" v-model="password"/>
     </InputGroup>
      <!--Send Button-->
      <LogSignButton :logIn=true link="http://127.0.0.1:8000/login/" class="button"/>
@@ -38,6 +38,12 @@
       InputText,
       LogSignButton
     },
+    data: function(){
+      return {
+        email: "",
+        password: "",
+      }
+    }
   });
 </script>
 

@@ -1,9 +1,9 @@
 <template>
   <div v-if="logIn">
-    <Button label="Log In" @click="makeAPICall(link)" rounded/>
+    <Button label="Log In" @click="sendData(link)" rounded/>
   </div>
   <div v-else>
-    <Button label="Sign Up" @click="makeAPICall(link)" rounded/>
+    <Button label="Sign Up" @click="sendData(link)" rounded/>
   </div>
 </template>
 
@@ -30,7 +30,25 @@ export default defineComponent({
       } catch (error) {
         console.error('Error making API call:', error);
       }
+    },
+    async sendData(link:string) {
+      try {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:8000/login", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            value: "value"
+        }));
+        console.log("sent");
+      } catch(error) {
+        console.error('Error making API call:', error);
+      }
     }
-  }
+  },
+  data: function(){
+      return {
+        link: ""
+      }
+    }
 });
 </script>

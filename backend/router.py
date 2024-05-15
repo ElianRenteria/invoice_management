@@ -18,6 +18,10 @@ async def data(request: Request):
 async def login(request: Request):
 	return {"data": "Loggin in"}
 
-@pages_router.get("/signup")
+@pages_router.get("/signup/")
 async def signup(request: Request):
-	pass
+	return {"data": "Sign Up in"}
+
+@pages_router.post("/login")
+async def loginData(item: Request):
+	print("trying to work")
