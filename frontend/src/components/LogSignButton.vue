@@ -34,21 +34,16 @@ export default defineComponent({
     async sendData(link:string) {
       try {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://127.0.0.1:8000/login", true);
+        xhr.open("POST", link, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
             value: "value"
         }));
-        console.log("sent");
+        console.log("Sent Data");
       } catch(error) {
         console.error('Error making API call:', error);
       }
     }
   },
-  data: function(){
-      return {
-        link: ""
-      }
-    }
 });
 </script>

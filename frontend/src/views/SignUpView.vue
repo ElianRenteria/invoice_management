@@ -33,7 +33,7 @@
       <InputText placeholder="Password" id="pass"/>
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton :logIn=false link="http://127.0.0.1:8000/signup/" class="button"/>
+     <LogSignButton :logIn=false link="http://127.0.0.1:8000/signup" class="button"/>
   </div>
 </template>
   

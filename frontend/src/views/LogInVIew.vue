@@ -17,7 +17,7 @@
       <InputText placeholder="Password" v-model="password"/>
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton :logIn=true link="http://127.0.0.1:8000/login/" class="button"/>
+     <LogSignButton :logIn=true link="http://127.0.0.1:8000/login" class="button"/>
   </div>
 </template>
 
