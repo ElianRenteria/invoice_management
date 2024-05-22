@@ -6,7 +6,7 @@
       <InputGroupAddon>
           <i class="pi pi-id-card"></i>
       </InputGroupAddon>
-      <InputText placeholder="Full Name" v-model="name"/>
+      <InputText placeholder="Full Name" required :invalid="validName ? false : true" v-model="name" @blur="validateName"/>
     </InputGroup>
     <br>
     <!--Username-->
@@ -14,7 +14,7 @@
       <InputGroupAddon>
           <i class="pi pi-user"></i>
       </InputGroupAddon>
-      <InputText placeholder="Username" v-model="username"/>
+      <InputText placeholder="Username" required :invalid="validUsername ? false : true" v-model="username" @blur="validateUsername" />
     </InputGroup>
     <br>
     <!--Email-->
@@ -22,7 +22,7 @@
       <InputGroupAddon>
           <i class="pi pi-envelope"></i>
       </InputGroupAddon>
-      <InputText type="text" placeholder="Email" v-model="email" id="email"/>
+      <InputText type="text" placeholder="Email" required :invalid="validEmail ? false : true" v-model="email" @blur="validateEmail" id="email"/>
     </InputGroup>
     <br>
      <!--Password-->
@@ -30,7 +30,7 @@
       <InputGroupAddon>
           <i class="pi pi-key"></i>
       </InputGroupAddon>
-      <InputText placeholder="Password" v-model="password" id="pass"/>
+      <InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>
     </InputGroup>
      <!--Send Button-->
      <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/signup" :values="sendData()" class="button"/>
@@ -61,9 +61,45 @@
         email: "",
         password: "",
         dataArray: [] as string [],
+        validEmail: true,
+        validName: true, 
+        validUsername: true, 
+        validPassword: true
       }
     },
     methods: {
+      validateName(){
+        // Validate that name is long enough and contains space
+        if (this.name.length >= 5 && this.name.includes(' ')) {
+          this.validName = true;
+        } else {
+          this.validName = false;
+        }
+      },
+      validateUsername() {
+        //Validate username is long enough
+        if(this.username.length >= 4) {
+          this.validUsername = true;
+        } else {
+          this.validUsername = false;
+        }
+      },
+      validatePassword() {
+        //Validate username is long enough
+        if(/\d/.test(this.password) && /[!@#$%^&*(),.?":{}|<>]/.test(this.password) && this.password.length > 8) {
+          this.validPassword = true;
+        } else {
+          this.validPassword = false;
+        }
+      },
+      validateEmail() {
+        // Validate that email contains @ and .
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+          this.validEmail = true;
+        } else {
+          this.validEmail = false;
+        }
+      },
       sendData() {//Send sign up credentials to server through button
         this.dataArray = [this.name, this.username, this.email, this.password];
         return this.dataArray;
