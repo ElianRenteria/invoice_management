@@ -12,13 +12,14 @@ import Button from "primevue/button";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "apiTest",
+  name: "LogSignButton",
   components: {
     Button,
   },
   props: {
     logIn: Boolean,
-    link: String
+    link: String,
+    values: Array  //Array of either sign up or log in creds 
   },
   methods: {
     async makeAPICall(link:string) {
@@ -37,7 +38,7 @@ export default defineComponent({
         xhr.open("POST", link, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
-            value: "value"
+            data: this.values
         }));
         console.log("Sent Data");
       } catch(error) {

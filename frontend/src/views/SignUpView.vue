@@ -6,7 +6,7 @@
       <InputGroupAddon>
           <i class="pi pi-id-card"></i>
       </InputGroupAddon>
-      <InputText placeholder="Full Name" />
+      <InputText placeholder="Full Name" v-model="name"/>
     </InputGroup>
     <br>
     <!--Username-->
@@ -14,7 +14,7 @@
       <InputGroupAddon>
           <i class="pi pi-user"></i>
       </InputGroupAddon>
-      <InputText placeholder="Username" />
+      <InputText placeholder="Username" v-model="username"/>
     </InputGroup>
     <br>
     <!--Email-->
@@ -22,7 +22,7 @@
       <InputGroupAddon>
           <i class="pi pi-envelope"></i>
       </InputGroupAddon>
-      <InputText type="text" placeholder="Email" id="confirmPass"/>
+      <InputText type="text" placeholder="Email" v-model="email" id="email"/>
     </InputGroup>
     <br>
      <!--Password-->
@@ -30,10 +30,10 @@
       <InputGroupAddon>
           <i class="pi pi-key"></i>
       </InputGroupAddon>
-      <InputText placeholder="Password" id="pass"/>
+      <InputText placeholder="Password" v-model="password" id="pass"/>
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton :logIn=false link="http://127.0.0.1:8000/signup" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/signup" :values="sendData()" class="button"/>
   </div>
 </template>
   
@@ -54,9 +54,19 @@
       InputText,
       LogSignButton
     },
+    data: function(){
+      return{
+        name: "",
+        username: "",
+        email: "",
+        password: "",
+        dataArray: [] as string [],
+      }
+    },
     methods: {
-      matchPasswords() {
-        const pass = document.getElementById("pass");
+      sendData() {//Send sign up credentials to server through button
+        this.dataArray = [this.name, this.username, this.email, this.password];
+        return this.dataArray;
       }
     }
   });

@@ -17,7 +17,7 @@
       <InputText placeholder="Password" v-model="password"/>
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton :logIn=true link="http://127.0.0.1:8000/login" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=true link="http://127.0.0.1:8000/login" :values="sendData()" class="button"/>
   </div>
 </template>
 
@@ -42,6 +42,13 @@
       return {
         email: "",
         password: "",
+        dataArray: [] as string[],
+      }
+    },
+    methods: {
+      sendData() {//Send login credentials to server through button
+        this.dataArray = [this.email, this.password];
+        return this.dataArray;
       }
     }
   });

@@ -29,9 +29,14 @@ async def signup(request: Request):
 @pages_router.post("/login")
 async def loginData(request: Request):
 	print("Logged In")
-	print(request)
+	data = await request.json()
+	print(data)
+	return data
 
 @pages_router.post("/signup")
 async def signUpData(request: Request):
 	print("Signed Up")
-	print(request)
+	data = await request.json()
+	print(data)
+	return data
+
