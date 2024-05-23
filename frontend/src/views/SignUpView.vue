@@ -30,7 +30,8 @@
       <InputGroupAddon>
           <i class="pi pi-key"></i>
       </InputGroupAddon>
-      <InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>
+      <Password placeholder="Password" v-model="password" :invalid="validPassword ? false : true" @blur="validatePassword" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+      <!--<InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>-->
     </InputGroup>
      <!--Send Button-->
      <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/signup" :values="sendData()" class="button"/>
@@ -44,6 +45,7 @@
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
   import LogSignButton from "@/components/LogSignButton.vue";
+  import Password from 'primevue/password';
 
   export default defineComponent({
     name: "SignUpView",
@@ -52,7 +54,8 @@
       InputGroup,
       InputGroupAddon,
       InputText,
-      LogSignButton
+      LogSignButton,
+      Password
     },
     data: function(){
       return{
@@ -85,8 +88,8 @@
         }
       },
       validatePassword() {
-        //Validate username is long enough
-        if(/\d/.test(this.password) && /[!@#$%^&*(),.?":{}|<>]/.test(this.password) && this.password.length > 8) {
+        //Validate Password is long enough
+        if(this.password.length > 8) {
           this.validPassword = true;
         } else {
           this.validPassword = false;
@@ -101,8 +104,12 @@
         }
       },
       sendData() {//Send sign up credentials to server through button
-        this.dataArray = [this.name, this.username, this.email, this.password];
-        return this.dataArray;
+        if(this.validName && this.validUsername && this.validEmail && this.validPassword) {
+          this.dataArray = [this.name, this.username, this.email, this.password];
+          return this.dataArray;
+        } else {
+          alert("Form is not complete")
+        }
       }
     }
   });
