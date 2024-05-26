@@ -27,3 +27,19 @@ def read_client(client_id: int, db: Session = Depends(deps.get_db)):
 @router.post("/", response_model=schemas.Client)
 def create_client(client: schemas.ClientCreate, db: Session = Depends(deps.get_db)):
     return crud.create_client(db=db, client=client)
+
+
+@router.put("/{client_id}", response_model=schemas.Client)
+def update_client(client_id: int, client: schemas.ClientUpdate, db: Session = Depends(deps.get_db)):
+    db_client = crud.get_client(db, client_id=client_id)
+    if db_client is None:
+        raise HTTPException(status_code=404, detail="Client not found")
+    return crud.update_client(db=db, client=client)
+
+
+@router.delete("/{client_id}", response_model=schemas.Client)
+def delete_client(client_id: int, db: Session = Depends(deps.get_db)):
+    db_client = crud.get_client(db, client_id=client_id)
+    if db_client is None:
+        raise HTTPException(status_code=404, detail="Client not found")
+    return crud.delete_client(db=db, client_id=client_id)

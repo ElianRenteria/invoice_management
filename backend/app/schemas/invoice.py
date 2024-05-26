@@ -58,6 +58,9 @@ class InvoiceCreate(InvoiceBase):
 class InvoiceUpdate(InvoiceBase):
     id: int
 
+    services: List[InvoiceServiceCreate] = []
+    payments: List[PaymentCreate] = []
+
 
 class Invoice(InvoiceBase):
     id: int

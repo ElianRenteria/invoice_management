@@ -29,3 +29,12 @@ def update_client(db: Session, client: ClientUpdate):
         db.commit()
         db.refresh(db_client)
     return db_client
+
+
+def delete_client(db: Session, client_id: int):
+    db_client = db.query(ClientModel).filter(
+        ClientModel.id == client_id).first()
+    if db_client:
+        db.delete(db_client)
+        db.commit()
+    return db_client

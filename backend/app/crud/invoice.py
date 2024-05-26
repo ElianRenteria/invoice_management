@@ -33,3 +33,12 @@ def update_invoice(db: Session, invoice: InvoiceUpdate):
         db.commit()
         db.refresh(db_invoice)
     return db_invoice
+
+
+def delete_invoice(db: Session, invoice_id: int):
+    db_invoice = db.query(InvoiceModel).filter(
+        InvoiceModel.id == invoice_id).first()
+    if db_invoice:
+        db.delete(db_invoice)
+        db.commit()
+    return db_invoice
