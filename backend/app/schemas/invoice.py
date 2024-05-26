@@ -31,11 +31,16 @@ class InvoiceServiceBase(BaseModel):
 
 
 class InvoiceServiceCreate(InvoiceServiceBase):
-    pass
+    invoice_id: int
+
+
+class InvoiceServiceUpdate(InvoiceServiceBase):
+    id: int
 
 
 class InvoiceService(InvoiceServiceBase):
     id: int
+    invoice_id: int
     service: Service
 
     class Config:
