@@ -1,8 +1,13 @@
+# Path: backend/main.py
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.api import api_router
 from app.core.config import settings
+from app import db
+
+db.init_db()
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
