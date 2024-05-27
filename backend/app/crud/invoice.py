@@ -1,7 +1,7 @@
 # Path: backend/app/crud/invoice.py
 
-from sqlalchemy.orm import Session
-from app.db.models.invoice import Invoice as InvoiceModel
+from sqlalchemy.orm import Session, joinedload
+from app.db.models.invoice import Invoice as InvoiceModel, InvoiceService as InvoiceServiceModel
 from app.schemas.invoice import InvoiceCreate, InvoiceUpdate
 
 
@@ -36,8 +36,14 @@ def update_invoice(db: Session, invoice: InvoiceUpdate):
 
 
 def delete_invoice(db: Session, invoice_id: int):
-    db_invoice = db.query(InvoiceModel).filter(
-        InvoiceModel.id == invoice_id).first()
+    db_invoice = db \
+        .query(InvoiceModel) \
+        .options(
+            joinedload(InvoiceModel.service)
+            .joinedload(InvoiceServiceModel.service)
+        ) \
+        .filter(InvoiceModel.id == invoice_id) \
+        .first()
     if db_invoice:
         db.delete(db_invoice)
         db.commit()

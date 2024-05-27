@@ -12,4 +12,5 @@ class Client(Base):
     name = Column(String, index=True)
     email = Column(String, unique=True, index=True)
 
-    invoices = relationship("Invoice", back_populates="client")
+    invoices = relationship(
+        "Invoice", cascade="all, delete-orphan", back_populates="client")

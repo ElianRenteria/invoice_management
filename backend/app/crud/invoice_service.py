@@ -1,9 +1,10 @@
 # Path: backend/app/crud/invoice_service.py
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from app.db.models.invoice import InvoiceService as InvoiceServiceModel
-from app.db.models.service import Service as ServiceModel
 from app.schemas.invoice import InvoiceServiceCreate, InvoiceServiceUpdate
+from app.db.models.service import Service as ServiceModel
+from app.db.models.invoice import Invoice as InvoiceModel
 from fastapi import HTTPException, status
 
 
@@ -16,7 +17,13 @@ def create_invoice_service(db: Session, invoice_service: InvoiceServiceCreate):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Service with the given ID does not exist"
         )
-
+    db_invoice = db.query(InvoiceModel).filter(
+        InvoiceModel.id == invoice_service.invoice_id).first()
+    if not db_invoice:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invoice with the given ID does not exist"
+        )
     db_invoice_service = InvoiceServiceModel(**invoice_service.model_dump())
     db.add(db_invoice_service)
     db.commit()
@@ -43,14 +50,12 @@ def update_invoice_service(db: Session, invoice_service: InvoiceServiceUpdate):
 
 
 def delete_invoice_service(db: Session, invoice_service_id: int):
-    db_invoice_service = db.query(InvoiceServiceModel).filter(
-        InvoiceServiceModel.id == invoice_service_id).first()
+    db_invoice_service = db \
+        .query(InvoiceServiceModel) \
+        .options(joinedload(InvoiceServiceModel.service)) \
+        .filter(InvoiceServiceModel.id == invoice_service_id) \
+        .first()
     if db_invoice_service:
-        # Access the related service to ensure it is loaded before deletion.
-        # This is necessary because the relationship is lazy-loaded.
-        # If we don't do this, we will get an error when trying to access
-        # the service after deletion.
-        _ = db_invoice_service.service
         db.delete(db_invoice_service)
         db.commit()
     return db_invoice_service

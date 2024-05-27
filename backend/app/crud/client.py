@@ -1,7 +1,8 @@
 # Path: backend/app/crud/client.py
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from app.db.models.client import Client as ClientModel
 from app.schemas.client import ClientCreate, ClientUpdate
+from app.db.models.invoice import Invoice as InvoiceModel, InvoiceService as InvoiceServiceModel
 
 
 def create_client(db: Session, client: ClientCreate):
@@ -32,8 +33,15 @@ def update_client(db: Session, client: ClientUpdate):
 
 
 def delete_client(db: Session, client_id: int):
-    db_client = db.query(ClientModel).filter(
-        ClientModel.id == client_id).first()
+    db_client = db \
+        .query(ClientModel) \
+        .options(
+            joinedload(ClientModel.invoices)
+            .joinedload(InvoiceModel.services)
+            .joinedload(InvoiceServiceModel.service)
+        ) \
+        .filter(ClientModel.id == client_id) \
+        .first()
     if db_client:
         db.delete(db_client)
         db.commit()

@@ -17,9 +17,12 @@ class Invoice(Base):
     status = Column(Enum(InvoiceStatus), default=InvoiceStatus.ESTIMATE)
     client_id = Column(Integer, ForeignKey('clients.id'))
 
-    client = relationship("Client", back_populates="invoices")
-    services = relationship("InvoiceService", back_populates="invoice")
-    payments = relationship("Payment", back_populates="invoice")
+    client = relationship(
+        "Client", back_populates="invoices")
+    services = relationship(
+        "InvoiceService", cascade="all, delete-orphan", back_populates="invoice")
+    payments = relationship(
+        "Payment", back_populates="invoice")
 
 
 class InvoiceService(Base):
@@ -31,4 +34,4 @@ class InvoiceService(Base):
     quantity = Column(Integer)
 
     invoice = relationship("Invoice", back_populates="services")
-    service = relationship("Service")
+    service = relationship("Service", back_populates="invoice_services")
