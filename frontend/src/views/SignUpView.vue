@@ -34,7 +34,7 @@
       <!--<InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>-->
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/signup" :values="sendData()" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/api/v1/signup" :values="sendData()" class="button"/>
   </div>
 </template>
   
@@ -63,7 +63,6 @@
         username: "",
         email: "",
         password: "",
-        dataArray: [] as string [],
         validEmail: true,
         validName: true, 
         validUsername: true, 
@@ -105,8 +104,13 @@
       },
       sendData() {//Send sign up credentials to server through button
         if(this.validName && this.validUsername && this.validEmail && this.validPassword) {
-          this.dataArray = [this.name, this.username, this.email, this.password];
-          return this.dataArray;
+          const dataArray = ({
+            name: this.name,
+            username: this.username,
+            email: this.email,
+            password: this.password
+          });
+          return dataArray;
         } else {
           alert("Form is not complete")
         }

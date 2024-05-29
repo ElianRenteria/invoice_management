@@ -37,9 +37,7 @@ export default defineComponent({
         var xhr = new XMLHttpRequest();
         xhr.open("POST", link, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            data: this.values
-        }));
+        xhr.send(JSON.stringify(this.values));
         console.log("Sent Data");
         this.$router.push({name: 'home'});
       } catch(error) {

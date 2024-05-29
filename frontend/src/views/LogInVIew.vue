@@ -17,7 +17,7 @@
       <InputText placeholder="Password" v-model="password"/>
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton @click="sendData()" :logIn=true link="http://127.0.0.1:8000/login" :values="sendData()" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=true link="http://127.0.0.1:8000/api/v1/login" :values="sendData()" class="button"/>
   </div>
 </template>
 
@@ -28,6 +28,7 @@
   import InputGroup from 'primevue/inputgroup';
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
+  import loginSignUpRequest from "@/types/login";
 
   export default defineComponent({
     name: "LogInView",
@@ -41,15 +42,17 @@
     data: function(){
       return {
         email: "",
-        password: "",
-        dataArray: [] as string[],
+        password: ""
       }
     },
     methods: {
       sendData() {//Send login credentials to server through button
         if(this.password.length > 8 && this.email.length > 5) {
-          this.dataArray = [this.email, this.password];
-          return this.dataArray;
+          const dataArray = ({
+            email: this.email,
+            password: this.password
+          });
+          return dataArray;
         }
       }
     }
