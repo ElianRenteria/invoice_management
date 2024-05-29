@@ -6,6 +6,7 @@ from app.db.models.service import Service  # noqa
 from app.db.models.invoice import Invoice, InvoiceService  # noqa
 from app.db.models.client import Client  # noqa
 from app.db.models.payment import Payment  # noqa
+from app.db.models.users import Users  # noqa
 
 
 def init_db():

@@ -2,6 +2,8 @@
   <nav class="menu-bar">
     <router-link to="/" class="menu-item">Home</router-link>
     <router-link to="/about" class="menu-item">About</router-link>
+    <router-link to="/login" class="menu-item">Log In</router-link>
+    <router-link to="/signup" class="menu-item">Sign Up</router-link>
   </nav>
 </template>
 
