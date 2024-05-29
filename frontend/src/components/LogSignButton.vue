@@ -41,6 +41,7 @@ export default defineComponent({
             data: this.values
         }));
         console.log("Sent Data");
+        this.$router.push({name: 'home'});
       } catch(error) {
         console.error('Error making API call:', error);
       }

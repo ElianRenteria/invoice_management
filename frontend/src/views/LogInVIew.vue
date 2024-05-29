@@ -47,8 +47,10 @@
     },
     methods: {
       sendData() {//Send login credentials to server through button
-        this.dataArray = [this.email, this.password];
-        return this.dataArray;
+        if(this.password.length > 8 && this.email.length > 5) {
+          this.dataArray = [this.email, this.password];
+          return this.dataArray;
+        }
       }
     }
   });
