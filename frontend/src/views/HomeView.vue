@@ -1,17 +1,20 @@
 <template>
   <div class="home">
-    <apiTest msg="Welcome to Your Vue.js + TypeScript App" />
+    <Image src="@/assets/placeholder.png" alt="Image" width="650" />
+    <h1>Main title</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
+import Knob from 'primevue/knob';
+import Image from 'primevue/image';
 
 export default defineComponent({
   name: "HomeView",
   components: {
-    apiTest,
+    Image,
+    Knob
   },
 });
 </script>
