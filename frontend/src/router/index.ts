@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import LoginView from "../views/LoginView.vue";
-import RegisterView from "../views/RegisterView.vue";
+import LogInView from "../views/LogInView.vue";
+import SignUpView from "../views/SignUpView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import ClientsView from "../views/ClientsView.vue";
 import InvoicesView from "../views/InvoicesView.vue";
 import ServicesView from "../views/ServicesView.vue";
 import SettingsView from "../views/SettingsView.vue";
+import AboutView from "../views/AboutView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   // Example if we want to load things on request to make web bundle smaller
@@ -23,12 +24,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "login",
-    component: LoginView,
+    component: LogInView,
   },
   {
-    path: "/register",
-    name: "register",
-    component: RegisterView,
+    path: "/about",
+    name: "about",
+    component: AboutView,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignUpView,
   },
   {
     path: "/dashboard",
@@ -69,20 +75,19 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
-  
+
   const token = localStorage.getItem("authToken");
   const isAuthenticated = !!token;
 
   if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
     next({ name: "login" });
   } 
-  else if (isAuthenticated && ((to.name === 'login') || (to.name === 'register') || (to.name === 'home'))) {
+  else if (isAuthenticated && ((to.name === 'login') || (to.name === 'signup') || (to.name === 'home'))) {
     next({ name: 'dashboard' });
   } 
   else {
     next();
   }
-
 });
 
 
