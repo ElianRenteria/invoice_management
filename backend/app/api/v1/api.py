@@ -2,7 +2,7 @@
 
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import client, invoice, service, invoice_service
+from app.api.v1.endpoints import client, invoice, service, invoice_service, login, signup
 
 api_router = APIRouter()
 
@@ -15,3 +15,7 @@ api_router.include_router(
 api_router.include_router(
     invoice_service.router,
     prefix="/invoice_services", tags=["invoice_services"])
+api_router.include_router(
+    login.router, prefix="/login", tags=["login"])
+api_router.include_router(
+    signup.router, prefix="/signup", tags=["signup"])
