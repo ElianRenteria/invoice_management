@@ -10,3 +10,16 @@ def create_user(db: Session, user: SignUpRequest):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+def get_user(db: Session, user_email: str):
+    """
+    Retrieve a user by email.
+
+    Args:
+        db (Session): Database session.
+        user_email (int): Email of user to retrieve.
+
+    Returns:
+        schemas.Users: Retrieved user.
+    """
+    return db.query(UsersModel).filter(UsersModel.email == user_email).first()
