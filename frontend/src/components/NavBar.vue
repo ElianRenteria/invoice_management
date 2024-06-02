@@ -1,5 +1,7 @@
 <template>
+  <Menubar :model="items" />
   <nav class="menu-bar">
+    <h1>Invoice Manager</h1>
     <router-link to="/" class="menu-item">Home</router-link>
     <router-link to="/about" class="menu-item">About</router-link>
     <router-link to="/login" class="menu-item">Log In</router-link>
@@ -8,8 +10,17 @@
 </template>
 
 <script>
+import Menubar from 'primevue/menubar';
 export default {
   name: "NavBar",
+  components: {
+    Menubar
+  },
+  data: function() {
+    return {
+      
+    }
+  }
 };
 </script>
 

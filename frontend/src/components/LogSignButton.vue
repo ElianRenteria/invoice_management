@@ -39,10 +39,23 @@ export default defineComponent({
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(this.values));
         console.log("Sent Data");
-        this.$router.push({name: 'home'});
+
+        xhr.onreadystatechange = async function() {
+          //Send user to the dashboard
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+          } else {
+            alert("User already exists")
+          }
+        }
+        
       } catch(error) {
         console.error('Error making API call:', error);
       }
+    },
+    redirect() {
+      //Send user to dashboard after they been verified
+      this.$router.push({name: 'home'});
     }
   },
 });

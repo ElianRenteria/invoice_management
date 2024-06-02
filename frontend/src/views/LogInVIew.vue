@@ -24,7 +24,7 @@
 <script lang="ts">
   import { defineComponent } from "vue";
   import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
-  import LogSignButton from "@/components/LogSignButton.vue"; 
+  import LogSignButton from "@/components/LogSignButton.vue";
   import InputGroup from 'primevue/inputgroup';
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
