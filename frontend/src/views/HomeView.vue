@@ -1,9 +1,9 @@
 <template>
   <div class="main">
-    <Image :src="require('../assets/placeholder.png')" alt="Image" width="850" />
+    <Image :src="require('../assets/placeholder.png')" alt="Image" width="750" />
     <h1 class="title">Best <span class="highlight">Invoice Manager</span> for Contractors</h1>
     <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <Button label="Get Started" severity="info" class="main-button"/>
+    <Button @click="routeToSignUp" label="Get Started" severity="info" class="main-button"/>
   </div>
 </template>
 
@@ -20,14 +20,24 @@ export default defineComponent({
     Knob,
     Button
   },
+  methods: {
+    routeToSignUp() {
+      this.$router.push({name: 'signup'});
+    }
+  }
 });
 </script>
 <style>
 .main {
-  margin: auto;
-  margin-top: 3%;
-  width: 60%;
+  /*margin-top: 3%;
+  width: 40%;
   padding: 5%;
+  text-align: center;*/
+  margin: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 .title {
