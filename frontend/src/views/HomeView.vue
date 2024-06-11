@@ -21,8 +21,35 @@
     </div>
   </div>
 
+  <h2 class="feature-title">Main Features</h2>
   <div class="features">
-      <h2 class="feature-title">Main Features</h2>
+    <Accordion :activeIndex="0">
+      <AccordionTab header="Quickly Make New Estimates">
+          <p class="m-0">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+          </p>
+      </AccordionTab>
+      <AccordionTab header="Service Templates">
+          <p class="m-0">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
+              enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+          </p>
+      </AccordionTab>
+      <AccordionTab header="Effective Client Manager">
+          <p class="m-0">
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+              culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+          </p>
+      </AccordionTab>
+      <AccordionTab header="Easy to use Business Managment Tools">
+          <p class="m-0">
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+              culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+          </p>
+      </AccordionTab>
+  </Accordion>
   </div>
 </template>
 
@@ -32,6 +59,8 @@ import Knob from 'primevue/knob';
 import Image from 'primevue/image';
 import Button from 'primevue/button';
 import Divider from 'primevue/divider';
+import Accordion from 'primevue/accordion';
+import AccordionTab from 'primevue/accordiontab';
 
 export default defineComponent({
   name: "HomeView",
@@ -39,7 +68,9 @@ export default defineComponent({
     Image,
     Knob,
     Button,
-    Divider
+    Divider,
+    Accordion,
+    AccordionTab
   },
   methods: {
     routeToSignUp() {
@@ -93,6 +124,12 @@ export default defineComponent({
   font-size: 3em;
   text-align: center;
   margin: 5%;
+}
+
+.features {
+  margin: 10% 20%;
+  border: 2px solid rgb(0, 140, 255);
+  border-radius: 5px;
 }
 
 .highlight {
