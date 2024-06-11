@@ -98,6 +98,7 @@ export default defineComponent({
 
 .main-title {
   font-size: 4em;
+  text-align: center;
 }
 
 .main-description {

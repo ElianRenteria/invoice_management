@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="title">Log In</h1>
+    <h1 class="main-title">Log <span class="highlight">In</span></h1>
     <!--Username-->
     <InputGroup>
       <InputGroupAddon>
