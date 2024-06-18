@@ -10,7 +10,7 @@
   export default {
     name: "AuthenticatedLayout",
     components: {
-      SidePanel,
+      SidePanelNav,
     },
   };
   </script>
