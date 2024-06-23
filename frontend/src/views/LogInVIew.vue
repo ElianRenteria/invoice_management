@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="title">Log In</h1>
+    <h1 class="main-title">Log <span class="highlight">In</span></h1>
     <!--Username-->
     <InputGroup>
       <InputGroupAddon>
@@ -19,6 +19,7 @@
      <!--Send Button-->
      <LogSignButton @click="sendData()" :logIn=true link="http://127.0.0.1:8000/api/v1/login" :values="sendData()" class="button"/>
   </div>
+  <Footer />
 </template>
 
 <script lang="ts">
@@ -29,6 +30,7 @@
   import InputGroupAddon from 'primevue/inputgroupaddon';
   import InputText from 'primevue/inputtext';
   import loginSignUpRequest from "@/types/login";
+  import Footer from '@/components/Footer.vue';
 
   export default defineComponent({
     name: "LogInView",
@@ -37,7 +39,8 @@
       InputGroup,
       InputGroupAddon,
       InputText,
-      LogSignButton
+      LogSignButton,
+      Footer
     },
     data: function(){
       return {
@@ -59,10 +62,10 @@
   });
 </script>
 
-<style>
+<style scoped>
   .main {
     text-align: center;
-    margin: 8% 27%;
+    margin: 10% 27%;
   }
   .title {
     margin-bottom: 5%;
