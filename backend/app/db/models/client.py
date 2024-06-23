@@ -10,7 +10,8 @@ class Client(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
-    email = Column(String, unique=True, index=True)
+    email = Column(String, index=True)
+    created_by = Column(Integer, index=True)
 
     invoices = relationship(
         "Invoice", cascade="all, delete-orphan", back_populates="client")

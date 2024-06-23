@@ -16,6 +16,7 @@ class Invoice(Base):
     due_date = Column(Date, nullable=True)
     status = Column(Enum(InvoiceStatus), default=InvoiceStatus.ESTIMATE)
     client_id = Column(Integer, ForeignKey('clients.id'))
+    owner_id = Column(Integer, ForeignKey('users.id'))
 
     client = relationship(
         "Client", back_populates="invoices")
@@ -23,6 +24,7 @@ class Invoice(Base):
         "InvoiceService", cascade="all, delete-orphan", back_populates="invoice")
     payments = relationship(
         "Payment", back_populates="invoice")
+    owner = relationship("User", back_populates="invoices")
 
 
 class InvoiceService(Base):
