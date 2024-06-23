@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.api import deps
-from app.crud.user import create_user, query_user_by_username
+from app.crud.user import create_user, query_user_by_username, query_user_by_email
 from app.schemas.user import UserCreate, UserLogin, User
 from app.core.security import create_access_token, verify_password
 
@@ -15,11 +15,15 @@ def user_me(current_user: User = Depends(deps.get_current_user)):
 
 @router.post("/signup", response_model=User)
 def sign_up(user: UserCreate, db: Session = Depends(deps.get_db)):
-    if query_user_by_username(db, user.username):
-        raise HTTPException(
+    def exception_response(detail):
+        return HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Username already exists",
+            detail=detail,
         )
+    if query_user_by_username(db, user.username):
+        return exception_response("Username already exists")
+    if query_user_by_email(db, user.email):
+        return exception_response("Email already exists")
     db_user = create_user(db, user)
     return db_user
 
