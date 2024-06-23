@@ -25,19 +25,17 @@
       </p>
     </Fieldset>
   </div>
-
-  <div class="contact">
-    <h1 class="main-title">Contact <span class="highlight">Us</span></h1>
-    
-  </div>
+  <Footer />
 </template>
 <script lang="ts">
   import Fieldset from 'primevue/fieldset';
+  import Footer from '@/components/Footer.vue';
   import { defineComponent } from "vue";
   export default defineComponent({
     name: "AboutView",
     components: {
-      Fieldset
+      Fieldset,
+      Footer
     },
   })
 </script>

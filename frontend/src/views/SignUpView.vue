@@ -36,10 +36,12 @@
      <!--Send Button-->
      <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/api/v1/signup" :values="sendData()" class="button"/>
   </div>
+  <Footer />
 </template>
   
 <script lang="ts">
   import { defineComponent } from "vue";
+  import Footer from '@/components/Footer.vue';
   import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
   import InputGroup from 'primevue/inputgroup';
   import InputGroupAddon from 'primevue/inputgroupaddon';
@@ -55,7 +57,8 @@
       InputGroupAddon,
       InputText,
       LogSignButton,
-      Password
+      Password,
+      Footer
     },
     data: function(){
       return{
@@ -119,7 +122,7 @@
   });
 </script>
 
-<style>
+<style scoped>
   .main {
     text-align: center;
     margin: 8% 27%;

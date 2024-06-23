@@ -51,6 +51,7 @@
       </AccordionTab>
   </Accordion>
   </div>
+  <Footer />
 </template>
 
 <script lang="ts">
@@ -61,6 +62,7 @@ import Button from 'primevue/button';
 import Divider from 'primevue/divider';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
+import Footer from '@/components/Footer.vue';
 
 export default defineComponent({
   name: "HomeView",
@@ -70,7 +72,8 @@ export default defineComponent({
     Button,
     Divider,
     Accordion,
-    AccordionTab
+    AccordionTab,
+    Footer
   },
   methods: {
     routeToSignUp() {
@@ -94,6 +97,7 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 8% 27%;
 }
 
 .main-title {
