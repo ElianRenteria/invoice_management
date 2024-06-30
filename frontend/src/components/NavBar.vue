@@ -37,6 +37,7 @@
   }
 
   .menu-bar .items {
+    min-width: 300px;
     width: 25%;
     height: 100%;
     paddin: 0%;
