@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="container">
       <NavBar />
       <router-view />
     </div>
-  </template>
-  
-  <script>
+</template>
+
+<script>
   import NavBar from "../components/NavBar.vue";
   export default {
     name: "PublicLayout",
@@ -13,5 +13,17 @@
       NavBar,
     },
   };
-  </script>
+</script>
+<style scoped>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+</style>
   

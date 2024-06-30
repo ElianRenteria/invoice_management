@@ -1,21 +1,18 @@
 <template>
-    <Menubar :model="items" />
     <nav class="menu-bar">
       <h1>Invoice Manager</h1>
-      <router-link to="/" class="menu-item">Home</router-link>
-      <router-link to="/about" class="menu-item">About</router-link>
-      <router-link to="/login" class="menu-item">Log In</router-link>
-      <router-link to="/signup" class="menu-item">Sign Up</router-link>
+      <div class="items">
+        <router-link to="/" class="menu-item">Home</router-link>
+        <router-link to="/about" class="menu-item">About</router-link>
+        <router-link to="/login" class="menu-item">Log In</router-link>
+        <router-link to="/signup" class="menu-item">Sign Up</router-link>
+      </div>
     </nav>
   </template>
   
   <script>
-  import Menubar from 'primevue/menubar';
   export default {
     name: "NavBar",
-    components: {
-      Menubar
-    },
     data: function() {
       return {
         
@@ -29,6 +26,26 @@
     background-color: #1976d2; /* Set background color */
     color: #ffffff; /* Set text color */
     padding: 10px; /* Add padding */
+    padding-left: 30px; /* Add padding to the left */
+    padding-right: 30px; /* Add padding to the right */
+    width: 100%; /* Set full width */
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-bar .items {
+    width: 25%;
+    height: 100%;
+    paddin: 0%;
+    margin: 0%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .menu-item {
@@ -38,6 +55,6 @@
   }
   
   .menu-item:hover {
-    text-decoration: underline; /* Add underline on hover */
+    color: #072038;
   }
   </style>
