@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <component :is="layoutComponent" />
   </div>
 </template>
@@ -34,4 +34,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+  component {
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+</style>
 

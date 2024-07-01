@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session, joinedload
 from app.db.models.client import Client as ClientModel
 from app.schemas.client import ClientCreate, ClientUpdate
 from app.db.models.invoice import Invoice as InvoiceModel, InvoiceService as InvoiceServiceModel
+from app.db.models.user import User
 
 
 def create_client(db: Session, client: ClientCreate):
@@ -13,12 +14,21 @@ def create_client(db: Session, client: ClientCreate):
     return db_client
 
 
-def get_client(db: Session, client_id: int):
-    return db.query(ClientModel).filter(ClientModel.id == client_id).first()
+def get_client(db: Session, user: User, client_id: int):
+    return db \
+        .query(ClientModel) \
+        .filter(ClientModel.id == client_id) \
+        .filter(ClientModel.created_by == user.id) \
+        .first()
 
 
-def get_clients(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(ClientModel).offset(skip).limit(limit).all()
+def get_clients(db: Session, user: User, skip: int = 0, limit: int = 100):
+    return db \
+        .query(ClientModel) \
+        .filter(ClientModel.created_by == user.id) \
+        .offset(skip) \
+        .limit(limit) \
+        .all()
 
 
 def update_client(db: Session, client: ClientUpdate):

@@ -34,7 +34,7 @@
       <!--<InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>-->
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8000/api/v1/signup" :values="sendData()" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=false link="http://0.0.0.0:8080/api/v1/signup" :values="sendData()" class="button"/>
   </div>
   <Footer />
 </template>
@@ -135,4 +135,5 @@
     margin-top: 5%;  
   }
 </style>
+  
   
