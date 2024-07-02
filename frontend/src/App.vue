@@ -18,7 +18,7 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const isAuthenticated = !!localStorage.getItem("authToken");
+    const isAuthenticated = true;//!!localStorage.getItem("authToken");
 
     const layoutComponent = computed(() => {
       if (route.meta.requiresAuth && isAuthenticated) {
