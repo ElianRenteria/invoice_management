@@ -89,7 +89,7 @@ export default defineComponent({
   }
 });
 </script>
-<style>
+<style scoped>
 .main {
   margin: 3%;
   display: flex;
@@ -115,6 +115,7 @@ export default defineComponent({
 
 .stats {
   display: flex;
+  width: 70%;
   flex-direction: row;
   justify-content: space-evenly;
   color: rgb(0, 140, 255);
@@ -128,13 +129,14 @@ export default defineComponent({
 .feature-title {
   font-size: 3em;
   text-align: center;
-  margin: 5%;
+  margin-top: 6%;
 }
 
 .features {
-  margin: 10% 20%;
+  margin: 5% 20%;
   border: 2px solid rgb(0, 140, 255);
   border-radius: 5px;
+  width: 60%;
 }
 
 .highlight {

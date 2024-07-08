@@ -34,7 +34,7 @@
       <!--<InputText placeholder="Password" required :invalid="validPassword ? false : true" v-model="password" @blur="validatePassword" id="pass"/>-->
     </InputGroup>
      <!--Send Button-->
-     <LogSignButton @click="sendData()" :logIn=false link="http://0.0.0.0:8080/api/v1/signup" :values="sendData()" class="button"/>
+     <LogSignButton @click="sendData()" :logIn=false link="http://127.0.0.1:8080/api/v1/auth/signup" :values="sendData()" class="button"/>
   </div>
   <Footer />
 </template>
@@ -123,16 +123,32 @@
 </script>
 
 <style scoped>
-  .main {
-    text-align: center;
-    margin: 8% 27%;
-  }
   .title {
     margin-bottom: 5%;
   }
 
   .button {
     margin-top: 5%;  
+  }
+
+  .main {
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 8% 27%;
+  }
+
+  .main-title {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .highlight {
+    color: rgb(0,212,255);
+    color: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(105, 210, 252) 22%, rgb(0, 64, 184) 100%);
   }
 </style>
   
