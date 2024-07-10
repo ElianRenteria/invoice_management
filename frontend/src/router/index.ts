@@ -46,7 +46,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/clients",
     name: "clients",
     component: ClientsView,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
   },
   {
     path: "/invoices",
