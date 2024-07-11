@@ -8,6 +8,8 @@ import "primeicons/primeicons.css";
 import Ripple from "primevue/ripple";
 import Menu from "primevue/menu";
 import ProgressSpinner from "primevue/progressspinner";
+import 'primeflex/primeflex.css';
+
 
 const app = createApp(App);
 app.use(PrimeVue, { ripple: true });

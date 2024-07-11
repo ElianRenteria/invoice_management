@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="flex flex-row justify-content-center align-items-start h-full ">
       <SidePanelNav />
       <router-view />
     </div>
@@ -14,16 +14,3 @@
     },
   };
   </script>
-  
-  <style scoped>
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    margin: 0%;
-  }
-</style>

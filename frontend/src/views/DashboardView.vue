@@ -1,18 +1,29 @@
 <template>
     <div class="container">
         <SearchBarHeader />
-        <h1>Dashboard</h1>
+        <dataVisualization />
+        <div class="recents flex flex-row justify-content-evenly align-content-center w-full h-full">
+            <recentInvoices />
+            <recentClients />
+        </div>
     </div>
 </template>
 
 <script lang="ts">
     import { defineComponent } from "vue";
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
+    import dataVisualization from "@/components/dataVisualization.vue";
+    import recentClients from "@/components/recentClients.vue";
+    import recentInvoices from "@/components/recentInvoices.vue";
 
     export default defineComponent({
         name: "DashboardView",
         components: {
             SearchBarHeader,
+            dataVisualization,
+            recentClients,
+            recentInvoices
+
         },
     });
 </script>
