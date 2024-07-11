@@ -9,8 +9,10 @@
     <div class="w-full h-full flex flex-row justify-content-end align-items-end">
         <i class=" pi pi-star hover:text-pink-700" style="font-size: 2rem; color: #a9a5b5;"></i>
         <i class=" pi pi-bell px-3 hover:text-pink-700" style="font-size: 2rem; color: #a9a5b5;"></i>
-        <i class=" pi pi-user pl-6" style="font-size: 2.5rem; color: #a9a5b5;"></i>
-        <t class="text-2xl px-2">Jack Smith</t>
+        <div class="user-icon ml-6 mt-1 p-2 flex flex-row justify-content-center align-items-center">
+          <i class=" pi pi-user" style="font-size: 2rem; color: #a9a5b5;"></i>
+        </div>
+        <t class="account-name text-2xl px-2">Jack Smith <i class="pi pi-angle-down" style="font-size: 1.2rem; color: #a9a5b5;"></i></t>
     </div>
   </div>
 </template>
@@ -20,6 +22,7 @@
   import InputText from 'primevue/inputtext';
   import InputGroup from 'primevue/inputgroup';
   import 'primeicons/primeicons.css'; // Import PrimeIcons CSS
+  
 
   export default defineComponent({
     name: "SearchBarHeader",
@@ -36,6 +39,10 @@
 </script>
 
 <style scoped>
+  .user-icon {
+    background-color: aliceblue;
+    border-radius: 10%;
+  }
   .container {
     margin: 1rem;
     padding: 10px;
