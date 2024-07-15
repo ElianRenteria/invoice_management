@@ -1,6 +1,6 @@
 // src/utils/httpClient.ts
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import router from "@/router"; // Import Vue router if you're using Vue Router
+import router from "@/router";
 
 class HttpClient {
   private readonly instance: AxiosInstance;
