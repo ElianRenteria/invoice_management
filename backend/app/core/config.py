@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     JWT_PUBLIC_KEY: str = b64decode(
         os.getenv("PUBLIC_KEY_BASE64")).decode('utf-8')
     JWT_ALGORITHM: str = "RS256"
-    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
     class Config:
         case_sensitive = True
