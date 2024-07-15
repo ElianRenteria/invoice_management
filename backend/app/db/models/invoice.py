@@ -16,7 +16,7 @@ class Invoice(Base):
     due_date = Column(Date, nullable=True)
     status = Column(Enum(InvoiceStatus), default=InvoiceStatus.ESTIMATE)
     client_id = Column(Integer, ForeignKey('clients.id'))
-    owner_id = Column(Integer, ForeignKey('users.id'))
+    created_by = Column(Integer, ForeignKey('users.id'))
 
     client = relationship(
         "Client", back_populates="invoices")

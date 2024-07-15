@@ -6,8 +6,9 @@ from app.db.models.invoice import Invoice as InvoiceModel, InvoiceService as Inv
 from app.db.models.user import User
 
 
-def create_client(db: Session, client: ClientCreate):
+def create_client(db: Session, user: User, client: ClientCreate):
     db_client = ClientModel(**client.model_dump())
+    db_client.created_by = user.id
     db.add(db_client)
     db.commit()
     db.refresh(db_client)
@@ -31,9 +32,12 @@ def get_clients(db: Session, user: User, skip: int = 0, limit: int = 100):
         .all()
 
 
-def update_client(db: Session, client: ClientUpdate):
-    db_client = db.query(ClientModel).filter(
-        ClientModel.id == client.id).first()
+def update_client(db: Session, user: User, client: ClientUpdate):
+    db_client = db \
+        .query(ClientModel) \
+        .filter(ClientModel.created_by == user.id) \
+        .filter(ClientModel.id == client.id) \
+        .first()
     if db_client:
         db_client.name = client.name
         db_client.email = client.email
@@ -42,7 +46,7 @@ def update_client(db: Session, client: ClientUpdate):
     return db_client
 
 
-def delete_client(db: Session, client_id: int):
+def delete_client(db: Session, user: User, client_id: int):
     db_client = db \
         .query(ClientModel) \
         .options(
@@ -50,6 +54,7 @@ def delete_client(db: Session, client_id: int):
             .joinedload(InvoiceModel.services)
             .joinedload(InvoiceServiceModel.service)
         ) \
+        .filter(ClientModel.created_by == user.id) \
         .filter(ClientModel.id == client_id) \
         .first()
     if db_client:

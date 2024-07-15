@@ -6,7 +6,7 @@ from jose import jwt, JWTError
 from sqlalchemy.orm import Session
 from app.core.security import decode_access_token
 from app.core.config import settings
-from app.crud.user import query_user_by_username
+from app.crud.user import query_user_by_email
 from app.db.models.user import User
 from app.db.session import SessionLocal
 from typing import Generator
@@ -31,13 +31,15 @@ def get_current_user(
         status_code=401, detail="Could not validate credentials")
     try:
         if (payload := decode_access_token(token)) is None:
+            print("payload is None")
             raise credentials_exception
-        if (username := payload.get("sub")) is None:
+        if (email := payload.get("sub")) is None:
+            print("user_id is None")
             raise credentials_exception
     except JWTError:
         raise credentials_exception
 
-    user = query_user_by_username(db, username)
+    user = query_user_by_email(db, email)
     if user is None:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(status_code=401, detail="User not found")
     return user

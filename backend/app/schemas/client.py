@@ -22,6 +22,7 @@ class ClientUpdate(ClientBase):
 class Client(ClientBase):
     id: int
     invoices: List[Invoice] = []
+    created_by: int
 
     class Config:
         from_attributes = True

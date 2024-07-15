@@ -1,6 +1,6 @@
 from passlib.context import CryptContext
 from jose import jwt, JWTError
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from app.core.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -16,7 +16,7 @@ def get_password_hash(password):
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.utcnow() + timedelta(
+    expire = datetime.now(timezone.utc) + timedelta(
         minutes=settings.JWT_ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     encoded_jwt = jwt \
@@ -37,8 +37,8 @@ def decode_access_token(token: str):
                 algorithms=[settings.JWT_ALGORITHM]
             )
         return decoded_token \
-            if datetime.utcfromtimestamp(decoded_token['exp']) \
-            >= datetime.utcnow() \
+            if datetime.fromtimestamp(decoded_token.get("exp"), timezone.utc) \
+            >= datetime.now(timezone.utc) \
             else None
     except JWTError:
         return None

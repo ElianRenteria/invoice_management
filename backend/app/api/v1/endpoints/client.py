@@ -27,12 +27,12 @@ def read_client(client_id: int, db: Session = Depends(deps.get_db), current_user
 
 @ router.post("/", response_model=schemas.Client)
 def create_client(client: schemas.ClientCreate, db: Session = Depends(deps.get_db), current_user: User = Depends(deps.get_current_user)):
-    return crud.create_client(db=db, client=client)
+    return crud.create_client(db=db, user=current_user, client=client)
 
 
 @ router.put("/{client_id}", response_model=schemas.Client)
 def update_client(client_id: int, client: schemas.ClientUpdate, db: Session = Depends(deps.get_db), current_user: User = Depends(deps.get_current_user)):
-    db_client = crud.get_client(db, client_id=client_id)
+    db_client = crud.get_client(db, user=current_user, client_id=client_id)
     if db_client is None:
         raise HTTPException(status_code=404, detail="Client not found")
     return crud.update_client(db=db, client=client)
@@ -40,7 +40,7 @@ def update_client(client_id: int, client: schemas.ClientUpdate, db: Session = De
 
 @ router.delete("/{client_id}", response_model=schemas.Client)
 def delete_client(client_id: int, db: Session = Depends(deps.get_db), current_user: User = Depends(deps.get_current_user)):
-    db_client = crud.get_client(db, client_id=client_id)
+    db_client = crud.get_client(db, user=current_user, client_id=client_id)
     if db_client is None:
         raise HTTPException(status_code=404, detail="Client not found")
-    return crud.delete_client(db=db, client_id=client_id)
+    return crud.delete_client(db=db, user=current_user, client_id=client_id)
