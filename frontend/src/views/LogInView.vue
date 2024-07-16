@@ -1,77 +1,84 @@
 <template>
   <div class="main">
     <h1 class="main-title">Log <span class="highlight">In</span></h1>
-    <!--Username-->
+    <!-- Username -->
     <InputGroup>
       <InputGroupAddon>
-          <i class="pi pi-envelope"></i>
+        <i class="pi pi-envelope"></i>
       </InputGroupAddon>
-      <InputText placeholder="Email" v-model="email"/>
+      <InputText placeholder="Email" v-model="email" />
     </InputGroup>
-    <br>
-     <!--Password-->
+    <br />
+    <!-- Password -->
     <InputGroup>
       <InputGroupAddon>
-          <i class="pi pi-key"></i>
+        <i class="pi pi-key"></i>
       </InputGroupAddon>
       <InputText type="password" placeholder="Password" v-model="password" />
     </InputGroup>
-     <!--Send Button-->
-     <LogSignButton @click="sendData()" :logIn=true link="http://0.0.0.0:8080/api/v1/login" :values="sendData()" class="button"/>
+    <!-- Send Button -->
+    <LogSignButton @click="sendData" :logIn="true" :link="loginEndpoint" :values="sendData" class="button" />
   </div>
   <Footer />
 </template>
 
 <script lang="ts">
-  import { defineComponent } from "vue";
-  import apiTest from "@/components/apiTest.vue"; // @ is an alias to /src
-  import LogSignButton from "@/components/LogSignButton.vue";
-  import InputGroup from 'primevue/inputgroup';
-  import InputGroupAddon from 'primevue/inputgroupaddon';
-  import InputText from 'primevue/inputtext';
-  import loginSignUpRequest from "@/types/login";
-  import Footer from '@/components/Footer.vue';
+import { ref } from "vue";
+import LogSignButton from "@/components/LogSignButton.vue";
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import InputText from 'primevue/inputtext';
+import Footer from '@/components/Footer.vue';
 
-  export default defineComponent({
-    name: "LogInView",
-    components: {
-      apiTest,
-      InputGroup,
-      InputGroupAddon,
-      InputText,
-      LogSignButton,
-      Footer
-    },
-    data: function(){
-      return {
-        "email": "",
-        "password": ""
+export default {
+  name: "LogInView",
+  components: {
+    LogSignButton,
+    InputGroup,
+    InputGroupAddon,
+    InputText,
+    Footer,
+  },
+  setup() {
+    // Reactive variables
+    const email = ref("");
+    const password = ref("");
+
+    // Computed property or constant for login endpoint
+    const loginEndpoint = "http://0.0.0.0:8080/api/v1/login";
+
+    // Method to send login data
+    const sendData = () => {
+      if (password.value.length > 8 && email.value.length > 5) {
+        const dataArray = {
+          email: email.value,
+          password: password.value,
+        };
+        return dataArray;
       }
-    },
-    methods: {
-      sendData() {//Send login credentials to server through button
-        if(this.password.length > 8 && this.email.length > 5) {
-          const dataArray = ({
-            "email": this.email,
-            "password": this.password
-          });
-          return dataArray;
-        }
-      }
-    }
-  });
+    };
+
+    return {
+      email,
+      password,
+      sendData,
+      loginEndpoint,
+    };
+  },
+};
 </script>
 
 <style scoped>
-  .main {
-    text-align: center;
-    margin: 10% 27%;
-  }
-  .title {
-    margin-bottom: 5%;
-  }
+.main {
+  text-align: center;
+  margin: 10% 27%;
+}
 
-  .button {
-    margin-top: 5%;  
-  }
+.main-title {
+  margin-bottom: 5%;
+}
+
+.button {
+  margin-top: 5%;
+}
 </style>

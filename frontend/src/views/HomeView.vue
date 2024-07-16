@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <Image :src="require('../assets/placeholder.png')" alt="Image" width="750" />
+    <Image :src="require('@/assets/placeholder.png')" alt="Image" width="750" />
     <h1 class="main-title">Best <span class="highlight">Invoice Manager</span> for Contractors</h1>
     <p class="main-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     <Button @click="routeToSignUp" label="Get Started" severity="info" class="main-button"/>
@@ -16,7 +16,7 @@
       <h3 class="stat-description">Savings</h3>
     </div>
     <div class="stats-item">
-      <Knob v-model="value" valueTemplate="{value}" :size="180" readonly/>
+      <Knob v-model="value" :valueTemplate="`${value}`" :size="180" readonly/>
       <h3 class="stat-description">Already</h3>
     </div>
   </div>
@@ -43,52 +43,56 @@
               culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
           </p>
       </AccordionTab>
-      <AccordionTab header="Easy to use Business Managment Tools">
+      <AccordionTab header="Easy to use Business Management Tools">
           <p class="m-0">
               At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
               culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
           </p>
       </AccordionTab>
-  </Accordion>
+    </Accordion>
   </div>
   <Footer />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { ref } from 'vue';
 import Knob from 'primevue/knob';
 import Image from 'primevue/image';
 import Button from 'primevue/button';
-import Divider from 'primevue/divider';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Footer from '@/components/Footer.vue';
 
-export default defineComponent({
-  name: "HomeView",
+export default {
+  name: 'HomeView',
   components: {
     Image,
     Knob,
     Button,
-    Divider,
     Accordion,
     AccordionTab,
-    Footer
+    Footer,
   },
-  methods: {
-    routeToSignUp() {
-      this.$router.push({name: 'signup'});
+  setup() {
+    const value1 = ref(50);
+    const value2 = ref(10);
+    const value = ref(30);
+
+    function routeToSignUp() {
+      // Replace with your actual routing logic
+      console.log('Navigate to signup page');
     }
-  },
-  data: function(){
+
     return {
-      value1: 50,
-      value2: 10,
-      value: 30
-    }
-  }
-});
+      value1,
+      value2,
+      value,
+      routeToSignUp,
+    };
+  },
+};
 </script>
+
 <style>
 .main {
   margin: 3%;

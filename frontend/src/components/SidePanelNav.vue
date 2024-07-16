@@ -13,9 +13,9 @@
 </template>
 
 <script>
-export default {
-  name: "SidePanelNav",
-};
+  export default {
+    name: "SidePanelNav",
+  };
 </script>
 
 <style scoped>

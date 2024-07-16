@@ -12,12 +12,7 @@
   
   <script>
   export default {
-    name: "NavBar",
-    data: function() {
-      return {
-        
-      }
-    }
+    name: "NavBar"
   };
   </script>
   

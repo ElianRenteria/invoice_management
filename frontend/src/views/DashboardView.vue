@@ -1,43 +1,42 @@
 <template>
     <div class="container">
-        <SearchBarHeader />
-        <dataVisualization />
-        <div class="recents flex flex-row justify-content-evenly align-content-center w-full h-full">
-            <recentInvoices />
-            <recentClients />
-        </div>
+      <SearchBarHeader />
+      <dataVisualization />
+      <div class="recents flex flex-row justify-content-evenly align-content-center w-full h-full">
+        <recentInvoices />
+        <recentClients />
+      </div>
     </div>
-</template>
-
-<script lang="ts">
-    import { defineComponent } from "vue";
-    import SearchBarHeader from "@/components/SearchBarHeader.vue";
-    import dataVisualization from "@/components/dataVisualization.vue";
-    import recentClients from "@/components/recentClients.vue";
-    import recentInvoices from "@/components/recentInvoices.vue";
-
-    export default defineComponent({
-        name: "DashboardView",
-        components: {
-            SearchBarHeader,
-            dataVisualization,
-            recentClients,
-            recentInvoices
-
-        },
-    });
-</script>
-
-<style scoped>
-    .container {
-        background-color: #140a2c;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        width: 100%;
-        height: 100%;
-        padding: 0%;
-        margin: 0%;
+  </template>
+  
+  <script lang="ts">
+  import SearchBarHeader from "@/components/SearchBarHeader.vue";
+  import dataVisualization from "@/components/dataVisualization.vue";
+  import recentClients from "@/components/recentClients.vue";
+  import recentInvoices from "@/components/recentInvoices.vue";
+  
+  export default {
+    name: "DashboardView",
+    components: {
+      SearchBarHeader,
+      dataVisualization,
+      recentClients,
+      recentInvoices
     }
-</style>
+  };
+  </script>
+  
+  <style scoped>
+  .container {
+    background-color: #140a2c;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+    margin: 0%;
+  }
+  </style>
+  

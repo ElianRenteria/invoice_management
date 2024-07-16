@@ -30,14 +30,13 @@
 <script lang="ts">
   import Fieldset from 'primevue/fieldset';
   import Footer from '@/components/Footer.vue';
-  import { defineComponent } from "vue";
-  export default defineComponent({
+  export default {
     name: "AboutView",
     components: {
       Fieldset,
       Footer
     },
-  })
+  }
 </script>
 <style>
   .content {

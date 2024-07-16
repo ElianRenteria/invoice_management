@@ -7,14 +7,16 @@
 </template>
   
 <script lang="ts">
-  import { defineComponent } from "vue";
   
-  export default defineComponent({
+  export default {
     name: "recentInvoices",
-  });
+  };
 </script>
 
 <style scoped>
+h1{
+      color: white;
+  }
     .graphs {
         background-color: #211641;
         border-radius: 1rem;

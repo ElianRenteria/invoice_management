@@ -15,6 +15,9 @@
 </script>
 
 <style scoped>
+h1{
+      color: white;
+  }
     .graphs {
         background-color: #211641;
         border-radius: 1rem;

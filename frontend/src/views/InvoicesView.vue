@@ -6,17 +6,16 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue";
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
     import invoices from "@/components/invoices.vue";
 
-    export default defineComponent({
-    name: "InvoicesView",
-    components: {
-        SearchBarHeader,
-        invoices,
-    },
-    });
+    export default {
+        name: "InvoicesView",
+        components: {
+            SearchBarHeader,
+            invoices,
+        },
+    };
 </script>
 <style scoped>
     .container {

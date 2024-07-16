@@ -5,15 +5,14 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from "vue";
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
 
-    export default defineComponent({
+    export default {
     name: "SettingsView",
     components: {
         SearchBarHeader,
     },
-    });
+    };
 </script>
 <style scoped>
     .container {
