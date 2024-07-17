@@ -21,10 +21,10 @@ import { defineComponent } from "vue";
   });
 </script>
 
-<style>
+<style scoped>
   .client-list {
-    width: 300px;
-    border-right: 1px solid #dee2e6;
+    width: 50%;
+    border: 1px solid #dee2e6;
   }
 
   .client-list ul {

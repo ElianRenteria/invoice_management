@@ -1,9 +1,11 @@
 <template>
-    <div id="app">
-      <ClientsNavBar @search="filterClients" @addClient="addClient" />
+    <h1>Clients</h1>
+    <div class="main">
+      <ClientsNavBar @search="filterClients" @toggleAddClientForm="toggleAddClientForm" />
       <div class="container">
         <ClientsList :clients="filteredClients" @selectClient="selectClient" />
         <ClientDetailSidebar :client="selectedClient" v-if="showSidebar" @closeSidebar="showSidebar = false" />
+        <AddClient v-if="showAddClientForm" @addClient="addClient" @closeForm="toggleAddClientForm" />
       </div>
     </div>
   </template>
@@ -13,11 +15,18 @@
     import ClientsNavBar from '@/components/ClientsNavBar.vue';
     import ClientsList from '@/components/ClientsList.vue';
     import ClientDetailSidebar from '@/components/ClientDetailsSidebar.vue';
+    import AddClient from '@/components/AddClient.vue';
 
     interface Client {
         id: number;
         name: string;
-        details: string;
+        about: string;
+        email: string;
+        phone: string;
+        address: string;
+        city: string;
+        state: string;
+        zip: string;
     }
 
     export default defineComponent({
@@ -25,19 +34,19 @@
     components: {
         ClientsNavBar,
         ClientsList,
-        ClientDetailSidebar
+        ClientDetailSidebar,
+        AddClient
     },
     data() {
         return {
         clients: [
-            // Sample data for clients
-            { id: 1, name: 'Client 1', details: 'Details about Client 1' },
-            { id: 2, name: 'Client 2', details: 'Details about Client 2' },
-            // Add more clients as needed
+            { id: 1, name: 'John Doe', about: 'His a prick', email: "prick@gmail.com", phone: "(666)666-6666", address: "123 Nowhere Street", city: "Atlanta", state: "GA", zip: "66666" },
+            { id: 2, name: 'Jane Doe', about: 'Shes cheap af', email: "bitch@gmail.com", phone: "(666)666-6666", address: "123 Nowhere Street", city: "Atlanta", state: "GA", zip: "66666"  },
         ] as Client[],
         filteredClients: [] as Client[],
         selectedClient: null as Client | null,
-        showSidebar: false
+        showSidebar: false,
+        showAddClientForm: false
         };
     },
     created() {
@@ -53,22 +62,32 @@
             this.selectedClient = client;
             this.showSidebar = true;
         },
-        addClient() {
-        const newClient: Client = {
-            id: this.clients.length + 1,
-            name: `Client ${this.clients.length + 1}`,
-            details: `Details about Client ${this.clients.length + 1}`
-        };
-        this.clients.push(newClient);
+        addClient(client: Client) {
+        client.id = this.clients.length + 1;
+        this.clients.push(client);
         this.filteredClients = this.clients;
+        this.showAddClientForm = false;
+        },
+        toggleAddClientForm() {
+            this.showAddClientForm = !this.showAddClientForm
         }
     },
 });
     
 </script>
 
-<style>
+<style scoped>
+h1 {
+  font-size: 4em;
+  text-align: center;
+}
 .container {
-  display: flex;
+    display: flex;
+    align-items: right;
+    width: 100%;
+}
+.main {
+    width: 50%;
+    padding: 2%;
 }
 </style>
