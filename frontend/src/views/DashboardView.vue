@@ -16,7 +16,6 @@
   import recentInvoices from "@/components/recentInvoices.vue";
   
   export default {
-    name: "DashboardView",
     components: {
       SearchBarHeader,
       dataVisualization,

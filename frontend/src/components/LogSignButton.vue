@@ -1,32 +1,31 @@
 <template>
   <div>
-    <Button :label="logIn ? 'Log In' : 'Sign Up'" @click="sendData(link)" rounded/>
+    <Button :label="logIn.value ? 'Log In' : 'Sign Up'" @click="sendData()" rounded />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 import Button from "primevue/button";
 
-export default defineComponent({
+export default {
   name: "LogSignButton",
   components: {
     Button,
   },
-  props: {
-    logIn: Boolean,
-    link: String,
-    values: Array,
-  },
-  setup(props) {
-    const sendData = async (link: string) => {
+  setup() {
+    const logIn = ref(false);
+    const link = ref("http://0.0.0.0:8080/api/v1/login");
+    const values = ref([]);
+
+    const sendData = async () => {
       try {
-        const response = await fetch(link, {
+        const response = await fetch(link.value, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(props.values),
+          body: JSON.stringify(values.value),
         });
 
         if (response.ok) {
@@ -44,9 +43,13 @@ export default defineComponent({
     };
 
     return {
+      logIn,
+      link,
+      values,
       sendData,
     };
   },
-});
+};
 </script>
+
 

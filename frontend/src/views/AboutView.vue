@@ -31,7 +31,6 @@
   import Fieldset from 'primevue/fieldset';
   import Footer from '@/components/Footer.vue';
   export default {
-    name: "AboutView",
     components: {
       Fieldset,
       Footer

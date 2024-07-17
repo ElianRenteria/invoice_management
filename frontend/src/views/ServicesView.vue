@@ -10,7 +10,6 @@
     import services from "@/components/services.vue";
 
     export default {
-        name: "ServicesView",
         components: {
             SearchBarHeader,
             services,

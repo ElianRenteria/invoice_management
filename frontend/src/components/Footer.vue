@@ -23,9 +23,8 @@
   </template>
   
   <script lang="ts">
-    export default{
-      name: "Footer",
-    };
+  export default {
+  }
   </script>
   
   <style scoped>

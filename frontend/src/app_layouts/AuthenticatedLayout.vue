@@ -8,7 +8,6 @@
   <script>
   import SidePanelNav from "../components/SidePanelNav.vue";
   export default {
-    name: "AuthenticatedLayout",
     components: {
       SidePanelNav,
     },

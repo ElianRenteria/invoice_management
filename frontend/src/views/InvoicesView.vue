@@ -10,7 +10,6 @@
     import invoices from "@/components/invoices.vue";
 
     export default {
-        name: "InvoicesView",
         components: {
             SearchBarHeader,
             invoices,

@@ -24,7 +24,6 @@ import InputGroup from 'primevue/inputgroup';
 import 'primeicons/primeicons.css'; // Import PrimeIcons CSS
 
 export default {
-  name: "SearchBarHeader",
   components: {
     InputText,
     InputGroup,

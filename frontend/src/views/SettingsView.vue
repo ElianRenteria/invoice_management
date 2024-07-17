@@ -8,7 +8,6 @@
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
 
     export default {
-    name: "SettingsView",
     components: {
         SearchBarHeader,
     },

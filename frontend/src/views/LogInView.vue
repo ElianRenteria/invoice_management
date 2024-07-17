@@ -31,7 +31,6 @@ import InputText from 'primevue/inputtext';
 import Footer from '@/components/Footer.vue';
 
 export default {
-  name: "LogInView",
   components: {
     LogSignButton,
     InputGroup,

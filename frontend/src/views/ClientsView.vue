@@ -10,7 +10,6 @@
     import clients from "@/components/clients.vue";
 
     export default {
-    name: "ClientsView",
     components: {
         SearchBarHeader,
         clients,

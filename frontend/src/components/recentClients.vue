@@ -7,9 +7,8 @@
 </template>
   
 <script lang="ts">
-  export default {
-    name: "recentClients",
-  };
+export default {
+}
 </script>
 
 <style scoped>

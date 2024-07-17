@@ -3,11 +3,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { ref } from "vue";
 import Button from "primevue/button";
 
-export default defineComponent({
-  name: "apiTest",
+export default {
   components: {
     Button,
   },
@@ -26,6 +25,7 @@ export default defineComponent({
       makeAPICall,
     };
   },
-});
+};
 </script>
+
 

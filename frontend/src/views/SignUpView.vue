@@ -48,7 +48,6 @@ import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 
 export default {
-  name: "SignUpView",
   components: {
     Footer,
     LogSignButton,

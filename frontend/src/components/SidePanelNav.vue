@@ -12,10 +12,9 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "SidePanelNav",
-  };
+<script lang="ts">
+export default {
+}
 </script>
 
 <style scoped>
