@@ -17,25 +17,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from "vue";
 import InputText from 'primevue/inputtext';
 import InputGroup from 'primevue/inputgroup';
 import 'primeicons/primeicons.css'; // Import PrimeIcons CSS
 
-export default {
-  components: {
-    InputText,
-    InputGroup,
-  },
-  setup() {
-    const value = ref('');
-
-    return {
-      value,
-    };
-  },
-};
+const value = ref('');
 </script>
 
 <style scoped>

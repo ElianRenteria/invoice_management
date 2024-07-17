@@ -22,9 +22,7 @@
     </div>
 </template>
   
-<script lang="ts">
-export default {
-}
+<script setup lang="ts">
 </script>
 
 <style scoped>

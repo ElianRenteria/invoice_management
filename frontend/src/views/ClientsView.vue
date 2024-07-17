@@ -5,16 +5,10 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
     import clients from "@/components/clients.vue";
 
-    export default {
-    components: {
-        SearchBarHeader,
-        clients,
-    },
-    };
 </script>
 
 <style scoped>

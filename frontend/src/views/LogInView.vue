@@ -22,23 +22,13 @@
   <Footer />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from "vue";
 import LogSignButton from "@/components/LogSignButton.vue";
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import Footer from '@/components/Footer.vue';
-
-export default {
-  components: {
-    LogSignButton,
-    InputGroup,
-    InputGroupAddon,
-    InputText,
-    Footer,
-  },
-  setup() {
     // Reactive variables
     const email = ref("");
     const password = ref("");
@@ -56,15 +46,6 @@ export default {
         return dataArray;
       }
     };
-
-    return {
-      email,
-      password,
-      sendData,
-      loginEndpoint,
-    };
-  },
-};
 </script>
 
 <style scoped>

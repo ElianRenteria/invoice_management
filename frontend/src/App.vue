@@ -4,14 +4,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import PublicLayout from "./app_layouts/PublicLayout.vue";
 import AuthenticatedLayout from "./app_layouts/AuthenticatedLayout.vue";
 
 export default {
-  name: "App",
   components: {
     PublicLayout,
     AuthenticatedLayout,

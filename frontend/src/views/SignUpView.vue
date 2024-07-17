@@ -38,7 +38,7 @@
   <Footer />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from "vue";
 import Footer from '@/components/Footer.vue';
 import LogSignButton from "@/components/LogSignButton.vue";
@@ -46,17 +46,6 @@ import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
-
-export default {
-  components: {
-    Footer,
-    LogSignButton,
-    InputGroup,
-    InputGroupAddon,
-    InputText,
-    Password,
-  },
-  setup() {
     // Reactive variables
     const name = ref("");
     const username = ref("");
@@ -121,25 +110,6 @@ export default {
         alert("Form is not complete");
       }
     };
-
-    return {
-      name,
-      username,
-      email,
-      password,
-      validName,
-      validUsername,
-      validEmail,
-      validPassword,
-      sendData,
-      signupEndpoint,
-      validateName,
-      validateUsername,
-      validateEmail,
-      validatePassword,
-    };
-  },
-};
 </script>
 
 <style scoped>

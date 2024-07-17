@@ -27,15 +27,9 @@
   </div>
   <Footer />
 </template>
-<script lang="ts">
+<script setup lang="ts">
   import Fieldset from 'primevue/fieldset';
   import Footer from '@/components/Footer.vue';
-  export default {
-    components: {
-      Fieldset,
-      Footer
-    },
-  }
 </script>
 <style>
   .content {

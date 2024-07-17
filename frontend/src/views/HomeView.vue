@@ -54,7 +54,7 @@
   <Footer />
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue';
 import Knob from 'primevue/knob';
 import Image from 'primevue/image';
@@ -62,17 +62,6 @@ import Button from 'primevue/button';
 import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 import Footer from '@/components/Footer.vue';
-
-export default {
-  components: {
-    Image,
-    Knob,
-    Button,
-    Accordion,
-    AccordionTab,
-    Footer,
-  },
-  setup() {
     const value1 = ref(50);
     const value2 = ref(10);
     const value = ref(30);
@@ -81,15 +70,6 @@ export default {
       // Replace with your actual routing logic
       console.log('Navigate to signup page');
     }
-
-    return {
-      value1,
-      value2,
-      value,
-      routeToSignUp,
-    };
-  },
-};
 </script>
 
 <style>

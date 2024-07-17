@@ -5,16 +5,9 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
     import invoices from "@/components/invoices.vue";
-
-    export default {
-        components: {
-            SearchBarHeader,
-            invoices,
-        },
-    };
 </script>
 <style scoped>
     .container {

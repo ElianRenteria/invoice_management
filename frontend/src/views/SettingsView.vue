@@ -4,14 +4,8 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
     import SearchBarHeader from "@/components/SearchBarHeader.vue";
-
-    export default {
-    components: {
-        SearchBarHeader,
-    },
-    };
 </script>
 <style scoped>
     .container {

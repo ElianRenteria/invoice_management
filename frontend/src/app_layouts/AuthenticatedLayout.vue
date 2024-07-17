@@ -5,11 +5,6 @@
     </div>
   </template>
   
-  <script>
-  import SidePanelNav from "../components/SidePanelNav.vue";
-  export default {
-    components: {
-      SidePanelNav,
-    },
-  };
+  <script setup lang="ts">
+    import SidePanelNav from "../components/SidePanelNav.vue";
   </script>

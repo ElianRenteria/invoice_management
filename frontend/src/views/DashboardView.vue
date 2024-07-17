@@ -9,20 +9,12 @@
     </div>
   </template>
   
-  <script lang="ts">
+  <script setup lang="ts">
   import SearchBarHeader from "@/components/SearchBarHeader.vue";
   import dataVisualization from "@/components/dataVisualization.vue";
   import recentClients from "@/components/recentClients.vue";
   import recentInvoices from "@/components/recentInvoices.vue";
   
-  export default {
-    components: {
-      SearchBarHeader,
-      dataVisualization,
-      recentClients,
-      recentInvoices
-    }
-  };
   </script>
   
   <style scoped>
