@@ -10,15 +10,7 @@
     </nav>
   </template>
   
-  <script>
-  export default {
-    name: "NavBar",
-    data: function() {
-      return {
-        
-      }
-    }
-  };
+  <script setup lang="ts">
   </script>
   
   <style scoped>

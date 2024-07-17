@@ -1,29 +1,10 @@
 <template>
-    <div class="container">
+    <div class="flex flex-row justify-content-center align-items-start h-full ">
       <SidePanelNav />
       <router-view />
     </div>
   </template>
   
-  <script>
-  import SidePanelNav from "../components/SidePanelNav.vue";
-  export default {
-    name: "AuthenticatedLayout",
-    components: {
-      SidePanelNav,
-    },
-  };
+  <script setup lang="ts">
+    import SidePanelNav from "../components/SidePanelNav.vue";
   </script>
-  
-  <style scoped>
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    margin: 0%;
-  }
-</style>

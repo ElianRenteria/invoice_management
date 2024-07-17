@@ -3,27 +3,29 @@
 </template>
 
 <script lang="ts">
+import { ref } from "vue";
 import Button from "primevue/button";
-import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "apiTest",
+export default {
   components: {
     Button,
   },
-  props: {
-    msg: String,
-  },
-  methods: {
-    async makeAPICall() {
+  setup() {
+    const makeAPICall = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000');
+        const response = await fetch("http://127.0.0.1:8000");
         const data = await response.json();
         console.log(data);
       } catch (error) {
-        console.error('Error making API call:', error);
+        console.error("Error making API call:", error);
       }
-    }
-  }
-});
+    };
+
+    return {
+      makeAPICall,
+    };
+  },
+};
 </script>
+
+
