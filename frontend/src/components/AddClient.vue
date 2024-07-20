@@ -12,56 +12,55 @@
 
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-info-circle"></i>
         </InputGroupAddon>
-        <InputText v-model="about" placeholder="about" size="small" type="text" required/>
+        <InputText v-model="about" placeholder="about" size="small" type="text"/>
       </InputGroup>
 
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-at"></i>
         </InputGroupAddon>
         <InputText v-model="email" placeholder="email" size="small" type="text" required/>
       </InputGroup>
 
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-phone"></i>
         </InputGroupAddon>
         <InputText v-model="phone" placeholder="phone" size="small" type="text" required/>
       </InputGroup>
 
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-map-marker"></i>
         </InputGroupAddon>
-        <InputText v-model="address" placeholder="address" size="small" type="text" required/>
+        <InputText v-model="address" placeholder="address" size="small" type="text"/>
       </InputGroup>
       
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-map"></i>
         </InputGroupAddon>
-        <InputText v-model="city" placeholder="city" size="small" type="text" required/>
+        <InputText v-model="city" placeholder="city" size="small" type="text"/>
       </InputGroup>
 
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-sitemap"></i>
         </InputGroupAddon>
-        <InputText v-model="state" placeholder="state" size="small" type="text" required/>
+        <InputText v-model="state" placeholder="state" size="small" type="text"/>
       </InputGroup>
-
+      
       <InputGroup>
         <InputGroupAddon>
-          <i class="pi pi-user"></i>
+          <i class="pi pi-info"></i>
         </InputGroupAddon>
-        <InputText v-model="zip" placeholder="zip" size="small" type="text" required/>
+        <InputText v-model="zip" placeholder="zip" size="small" type="text"/>
       </InputGroup>
 
-      <div>
+      <div class="buttons">
         <Button label="Add" type="submit" severity="help" rounded />
-        <Button label="Cancel" @click="onClose" type="button" severity="help" rounded />
       </div>
     </form>
   </div>
@@ -107,6 +106,7 @@ export default defineComponent({
         zip: this.zip
       };
       this.$emit('addClient', newClient);
+      this.$emit('onAddClient');
       this.resetForm();
     },
     onClose() {
@@ -134,11 +134,19 @@ export default defineComponent({
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .add-client-form form {
   display: flex;
   flex-direction: column;
 }
+
 .add-client-form form div {
   margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
 }
 </style>

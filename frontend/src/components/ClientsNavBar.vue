@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <InputText v-model="searchTerm" @input="onSearch" type="text" placeholder="Search Clients" />
-    <Button label="Add" @click="onAddClient" severity="help" />
+    <Button :label="toggleAdd ? 'Cancel' : 'Add'" @click="onAddClient" severity="help" />
   </nav>
 </template>
 
@@ -18,7 +18,8 @@ export default defineComponent({
   },
   data() {
     return {
-      searchTerm: ''
+      searchTerm: '',
+      toggleAdd: false,
     };
   },
   methods: {
@@ -26,7 +27,7 @@ export default defineComponent({
       this.$emit('search', this.searchTerm);
     },
     onAddClient() {
-      //this.$emit('addClient');
+      this.toggleAdd = !this.toggleAdd;
       this.$emit('toggleAddClientForm');
     }
   }
