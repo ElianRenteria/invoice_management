@@ -32,3 +32,11 @@ Usage:
     npm i unplugin-vue-components -D
     npm i @primevue/auto-import-resolver -D
     ```
+
+7.  Install prettier as a dev dependency using the command `npm install --save-dev --save-exact prettier`.
+
+8.  Install `eslint-config-prettier` as a dev dependency using the command `npm install eslint-config-prettier --save-dev`.
+
+9.  Install `eslint` and `eslint-plugin-vue` as dev dependencies using the command `npm install --save-dev eslint eslint-plugin-vue`.
+
+10. Install `axios` using `npm install axios`.
