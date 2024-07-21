@@ -25,3 +25,10 @@ Usage:
 4.  Start the development server using the command `npm run dev`.
 
 5.  Install PrimeVue and PrimeVue themes using the commands `npm install primevue` and `npm install @primevue/themes`.
+
+6.  Install `unplugin-vue-components` and `@primevue/auto-import-resolver` as dev dependencies.
+
+    ```shell
+    npm i unplugin-vue-components -D
+    npm i @primevue/auto-import-resolver -D
+    ```
