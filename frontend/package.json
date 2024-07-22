@@ -16,8 +16,10 @@
     "@vueuse/integrations": "^10.11.0",
     "@vueuse/router": "^10.11.0",
     "axios": "^1.7.2",
+    "jwt-decode": "^3.1.2",
     "primevue": "^4.0.0",
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@primevue/auto-import-resolver": "^4.0.0",
@@ -29,6 +31,7 @@
     "typescript": "^5.2.2",
     "unplugin-vue-components": "^0.27.3",
     "vite": "^5.3.4",
+    "vite-tsconfig-paths": "^4.3.2",
     "vue-tsc": "^2.0.24"
   }
 }
