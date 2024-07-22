@@ -17,6 +17,7 @@
     "@vueuse/router": "^10.11.0",
     "axios": "^1.7.2",
     "jwt-decode": "^3.1.2",
+    "primeflex": "^3.3.1",
     "primevue": "^4.0.0",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
