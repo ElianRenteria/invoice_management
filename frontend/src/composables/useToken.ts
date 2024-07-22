@@ -4,7 +4,7 @@ import { useJwt } from "@vueuse/integrations/useJwt";
 import { JwtPayload } from "jwt-decode";
 
 export function useToken() {
-  const token = useStorage<string | null>("access_token", null);
+  const token = useStorage<string | null>("access_token", null, localStorage);
 
   const setToken = (newToken: string | null): void => {
     token.value = newToken;

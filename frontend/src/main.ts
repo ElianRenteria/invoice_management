@@ -6,7 +6,6 @@ import App from "./App.vue";
  * PrimeVue
  */
 import PrimeVue from "primevue/config";
-import Aura from "@primevue/themes/aura";
 
 /**
  * The main entry point for the Vue.js application.
@@ -22,11 +21,12 @@ app.use(router);
 /**
  * PrimeVue - Configuration
  */
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura,
-  },
-});
+app.use(PrimeVue, { ripple: true, inputStyle: "filled" });
+
+/**
+ * PrimeVue - Theme
+ */
+import "primevue/resources/themes/aura-dark-purple/theme.css";
 
 /**
  * PrimeFlex
