@@ -14,7 +14,7 @@ export default class AuthService {
   }
 
   async login(email: string, password: string) {
-    return this.client.post("/login", {
+    return this.client.post("/auth/login", {
       email,
       password,
     });
@@ -22,7 +22,7 @@ export default class AuthService {
 
   // TODO: Implement Backend Logic to Make This Endpoint Functional
   async logout() {
-    return this.client.post("/logout");
+    return this.client.post("/auth/logout");
   }
 
   async register(
@@ -31,7 +31,7 @@ export default class AuthService {
     first_name: string,
     last_name: string,
   ) {
-    return this.client.post("/signup", {
+    return this.client.post("/auth/signup", {
       email,
       password,
       first_name,
