@@ -29,6 +29,17 @@ app.use(PrimeVue, {
 });
 
 /**
+ * PrimeFlex
+ */
+import "primeflex/primeflex.css";
+
+/**
+ * PrimeIcons
+ */
+
+import "primeicons/primeicons.css";
+
+/**
  * Mount the Vue.js application to the DOM.
  */
 app.mount("#app");
