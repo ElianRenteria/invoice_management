@@ -1,23 +1,31 @@
-import {
-  createMemoryHistory,
-  createRouter,
-  createWebHashHistory,
-  createWebHistory,
-  RouteRecordRaw,
-} from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { useToken } from "../composables/useToken";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Dashboard",
-    component: () => import("../views/private/Dashboard.vue"),
+    component: () => import("../layouts/PrivateLayout.vue"),
+    children: [
+      {
+        path: "dashboard",
+        name: "Dashboard",
+        components: {
+          default: () => import("../views/private/DashboardView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
+    ],
     meta: { requiresAuth: true },
   },
   {
     path: "/login",
     name: "Login",
     component: () => import("../views/public/auth/LoginView.vue"),
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/public/auth/RegisterView.vue"),
   },
 ];
 

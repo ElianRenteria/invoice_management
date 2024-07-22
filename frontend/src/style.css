@@ -1,5 +1,5 @@
 html {
-  background-color: var(--surface-ground);
+  background-color: var(--surface-800)
 }
 
 body {
@@ -8,11 +8,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--surface-800);
 }
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: var(--surface-800);	
 }

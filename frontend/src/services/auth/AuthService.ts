@@ -14,7 +14,7 @@ export default class AuthService {
   }
 
   async login(email: string, password: string) {
-    return this.client.post("/auth/login", {
+    return await this.client.post("/auth/login", {
       email,
       password,
     });
