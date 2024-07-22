@@ -14,6 +14,12 @@ import Aura from "@primevue/themes/aura";
 const app = createApp(App);
 
 /**
+ * Vue Router
+ */
+import router from "./router";
+app.use(router);
+
+/**
  * PrimeVue - Configuration
  */
 app.use(PrimeVue, {
