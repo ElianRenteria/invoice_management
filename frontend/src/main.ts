@@ -26,7 +26,7 @@ app.use(PrimeVue, { ripple: true, inputStyle: "filled" });
 /**
  * PrimeVue - Theme
  */
-import "primevue/resources/themes/aura-light-lime/theme.css";
+import "primevue/resources/themes/aura-light-purple/theme.css";
 
 /**
  * PrimeFlex
