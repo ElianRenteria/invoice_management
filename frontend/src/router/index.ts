@@ -7,7 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../layouts/PrivateLayout.vue"),
     children: [
       {
-        path: "dashboard",
+        path: "",
         name: "Dashboard",
         components: {
           default: () => import("../views/private/DashboardView.vue"),

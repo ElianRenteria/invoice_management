@@ -1,23 +1,21 @@
 <template>
   <div
-    class="flex flex-column justify-content-start surface-800 p-3 gap-2"
+    class="flex flex-column justify-content-center p-3 gap-3"
     :style="{ width: '15rem', height: '100dvh' }"
   >
-    <h1 class="text-white mb-5">Invoice Management</h1>
-    <nav class="align-items-start">
-      <router-link to="/dashboard" class="nav-link">
-        <i class="pi pi-home"></i>
-        Dashboard
-      </router-link>
-      <router-link to="/profile" class="nav-link">
-        <i class="pi pi-user"></i>
-        Profile
-      </router-link>
-      <router-link to="/settings" class="nav-link">
-        <i class="pi pi-cog"></i>
-        Settings
-      </router-link>
-    </nav>
+    <span class="text-sm text-color-secondary uppercase mb-3">Menu</span>
+    <router-link to="/dashboard" class="nav-link">
+      <Button icon="pi pi-home" rounded outlined />
+    </router-link>
+    <router-link to="/invoices" class="nav-link">
+      <Button icon="pi pi-receipt" rounded outlined />
+    </router-link>
+    <router-link to="/profile" class="nav-link">
+      <Button icon="pi pi-user" rounded outlined />
+    </router-link>
+    <router-link to="/settings" class="nav-link">
+      <Button icon="pi pi-cog" rounded outlined />
+    </router-link>
     <div class="flex-grow-1"></div>
     <Button label="Logout" icon="pi pi-sign-out" severity="secondary" />
   </div>
@@ -27,6 +25,7 @@
 .nav-link {
   color: var(--primary-color);
   text-decoration: none;
+  align-self: center;
   height: 2.25rem;
   display: flex;
   column-gap: 1rem;
