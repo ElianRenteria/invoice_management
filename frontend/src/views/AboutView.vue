@@ -39,7 +39,7 @@
     },
   })
 </script>
-<style>
+<style scoped>
   .content {
     margin: 0% 20%;
     margin-bottom: 5%;
@@ -47,5 +47,25 @@
 
   .about-text {
     font-size: 1.3em;
+  }
+
+  .main {
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 8% 27%;
+  }
+
+  .main-title {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .highlight {
+    color: rgb(0,212,255);
+    color: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgb(105, 210, 252) 22%, rgb(0, 64, 184) 100%);
   }
 </style>

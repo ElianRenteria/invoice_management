@@ -40,7 +40,7 @@
     min-width: 300px;
     width: 25%;
     height: 100%;
-    paddin: 0%;
+    padding: 0%;
     margin: 0%;
     padding-right: 20px;
     display: flex;

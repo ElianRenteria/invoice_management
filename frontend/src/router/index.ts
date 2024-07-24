@@ -46,7 +46,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/clients",
     name: "clients",
     component: ClientsView,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
   },
   {
     path: "/invoices",
@@ -77,6 +77,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "signup",
     component: () =>
       import("../views/SignUpView.vue"),
+  },
+  {
+    path: "/recentinvoices",
+    name: "recent invoices",
+    component: () =>
+      import("../components/RecentInvoices.vue"),
   },
 ];
 
