@@ -28,7 +28,7 @@
             $
           </text>
         </svg>
-        <h1 class="font-light">Merces Lite</h1>
+        <h1>Merces <span class="font-light">Lite</span></h1>
       </div>
       <div class="flex flex-row align-items-center gap-3">
         <Button :size="'large'" icon="pi pi-bell" rounded />
