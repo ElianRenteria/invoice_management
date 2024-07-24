@@ -1,7 +1,35 @@
 <template>
   <div class="container">
     <div class="flex justify-content-between px-5" :style="{ width: '100dvw' }">
-      <h1>Invoice Management</h1>
+      <div class="flex gap-2 align-items-center">
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 37 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="8"
+            y="8"
+            width="37"
+            height="48"
+            rx="4"
+            ry="4"
+            fill="white"
+            stroke="#e8defd"
+            stroke-width="1"
+          />
+          <rect x="16" y="14" rx="3" width="22" height="6" fill="#b99dfa" />
+          <rect x="16" y="26" rx="1" width="22" height="2" fill="#dccefc" />
+          <rect x="16" y="32" rx="1" width="22" height="2" fill="#dccefc" />
+          <rect x="16" y="38" rx="1" width="22" height="2" fill="#dccefc" />
+          <text x="34" y="51" fill="#a27df8" font-size="9" font-weight="light">
+            $
+          </text>
+        </svg>
+        <h1 class="font-light">Merces Lite</h1>
+      </div>
       <div class="flex flex-row align-items-center gap-3">
         <Button :size="'large'" icon="pi pi-bell" rounded />
         <Avatar
@@ -22,23 +50,10 @@
       />
     </div>
   </div>
-  <!-- <div
-    class="flex flex-row justify-content-start align-items-center gap-0"
-    :style="{ width: '100dvw', height: '100vh' }"
-  >
-    <router-view name="sidebar" />
-    <div class="container">
-      <router-view />
-    </div>
-  </div> -->
 </template>
 
 <style lang="css">
 .container {
   height: 100dvh;
 }
-/* .container {
-  background-color: white;
-  border-radius: 4em 0 0 4em;
-} */
 </style>
