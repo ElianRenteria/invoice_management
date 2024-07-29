@@ -4,21 +4,36 @@
     :style="{ width: '10rem' }"
   >
     <span class="text-sm text-color-secondary uppercase mb-3">Menu</span>
-    <router-link to="/dashboard" class="nav-link active">
-      <!-- <Button icon="pi pi-home" :size="'large'" rounded outlined /> -->
+    <router-link to="/" :class="['nav-link', { active: isActive('Home') }]">
       <i class="pi pi-home"></i>
       <span>Home</span>
     </router-link>
-    <router-link to="/invoices" class="nav-link">
+    <router-link
+      to="/invoices"
+      :class="['nav-link', { active: isActive('Invoices') }]"
+    >
       <i class="pi pi-receipt"></i>
       <span>Invoices</span>
     </router-link>
-    <router-link to="/profile" class="nav-link">
+    <router-link
+      to="/clients"
+      :class="['nav-link', { active: isActive('Clients') }]"
+    >
+      <i class="pi pi-users"></i>
+      <span>Clients</span>
+    </router-link>
+    <router-link
+      to="/profile"
+      :class="['nav-link', { active: isActive('Profile') }]"
+    >
       <i class="pi pi-user"></i>
       <span>Profile</span>
     </router-link>
     <div class="flex-grow-1"></div>
-    <router-link to="/settings" class="nav-link">
+    <router-link
+      to="/settings"
+      :class="['nav-link', { active: isActive('Settings') }]"
+    >
       <i class="pi pi-cog"></i>
       <span>Settings</span>
     </router-link>
@@ -67,3 +82,10 @@
   font-size: 1.5rem;
 }
 </style>
+
+<script setup lang="ts">
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const isActive = (routeName: string) => route.name?.toString() === routeName;
+</script>
