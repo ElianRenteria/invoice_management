@@ -14,6 +14,14 @@ const routes: Array<RouteRecordRaw> = [
           sidebar: () => import("../components/layout/Sidebar.vue"),
         },
       },
+      {
+        path: "clients",
+        name: "Clients",
+        components: {
+          default: () => import("../views/private/ClientsView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
     ],
     meta: { requiresAuth: true },
   },
