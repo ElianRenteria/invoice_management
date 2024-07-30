@@ -4,7 +4,10 @@
     :style="{ width: '10rem' }"
   >
     <span class="text-sm text-color-secondary uppercase mb-3">Menu</span>
-    <router-link to="/" :class="['nav-link', { active: isActive('Home') }]">
+    <router-link
+      to="/"
+      :class="['nav-link', { active: isActive('Dashboard') }]"
+    >
       <i class="pi pi-home"></i>
       <span>Home</span>
     </router-link>
