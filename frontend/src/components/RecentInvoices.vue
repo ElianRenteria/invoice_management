@@ -123,10 +123,6 @@ export default defineComponent({
   margin: 0 10px;
 }
 
-.group-by {
-  padding: 5px;
-}
-
 .invoices {
   display: flex;
   justify-content: space-between;

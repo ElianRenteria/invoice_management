@@ -84,6 +84,12 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import("../components/RecentInvoices.vue"),
   },
+  {
+    path: "/recentclients",
+    name: "recent clients",
+    component: () =>
+      import("../components/RecentClients.vue"),
+  },
 ];
 
 const router = createRouter({
