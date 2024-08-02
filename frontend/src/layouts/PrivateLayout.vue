@@ -33,7 +33,7 @@
       <div class="flex flex-row align-items-center gap-3">
         <Button :size="'large'" icon="pi pi-bell" rounded />
         <Avatar
-          label="SB"
+          :label="intials"
           :size="'large'"
           :shape="'circle'"
           :class="['surface-section', 'text-color-secondary']"
@@ -57,3 +57,18 @@
   height: 100dvh;
 }
 </style>
+
+<script setup lang="ts">
+import { useCurrentUser } from "../composables/useCurrentUser";
+const { first_name, last_name } = useCurrentUser();
+const intials = ref<string>("??");
+
+const computeInitials = () => {
+  if (!first_name || !last_name) return "??";
+  intials.value = `${first_name[0]}${last_name[0]}`;
+};
+
+onMounted(() => {
+  computeInitials();
+});
+</script>
