@@ -42,7 +42,7 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   // If the route does not require authentication, then allow
   // the user to navigate to it
   if (to.matched.some((record) => record.meta.requiresAuth) === false) {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="flex justify-content-between px-5" :style="{ width: '100dvw' }">
+    <div class="flex justify-content-between px-5">
       <div class="flex gap-2 align-items-center">
         <svg
           width="64"
@@ -52,9 +52,12 @@
   </div>
 </template>
 
-<style lang="css">
+<style lang="css" scoped>
 .container {
   height: 100dvh;
+}
+.container div:first-child {
+  width: 100dvw;
 }
 </style>
 
