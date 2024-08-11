@@ -13,6 +13,18 @@ from typing import Generator
 
 
 def get_db() -> Generator:
+    """
+    Returns a generator that yields a database session.
+
+    Yields:
+        SessionLocal: A database session.
+
+    Raises:
+        None
+
+    Returns:
+        Generator: A generator that yields a database session.
+    """
     try:
         db = SessionLocal()
         yield db
@@ -27,6 +39,20 @@ def get_current_user(
     db: Session = Depends(get_db),
     token: str = Depends(oauth2_scheme)
 ) -> User:
+    """
+    Retrieves the current authenticated user.
+
+    Parameters:
+        db (Session): The database session.
+        token (str): The access token for authentication.
+
+    Returns:
+        User: The current authenticated user.
+
+    Raises:
+        HTTPException: If the credentials cannot be validated or the
+            user is not found.
+    """
     credentials_exception = HTTPException(
         status_code=401, detail="Could not validate credentials")
     try:
