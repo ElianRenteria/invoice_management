@@ -6,14 +6,44 @@ from typing import Optional
 
 
 def query_user_by_email(db: Session, email: str) -> Optional[UserModel]:
+    """
+    Retrieve a user from the database based on their email.
+
+    Args:
+        db (Session): The database session.
+        email (str): The email of the user to retrieve.
+
+    Returns:
+        Optional[UserModel]: The user with the specified email, if found. Otherwise, None.
+    """
     return db.query(UserModel).filter(UserModel.email == email).first()
 
 
 def query_user_by_id(db: Session, user_id: int):
+    """
+    Retrieve a user from the database by their ID.
+
+    Args:
+        db (Session): The database session.
+        user_id (int): The ID of the user to retrieve.
+
+    Returns:
+        UserModel: The user with the specified ID, or None if not found.
+    """
     return db.query(UserModel).filter(UserModel.id == user_id).first()
 
 
 def create_user(db: Session, user: UserCreate):
+    """
+    Create a new user in the database.
+
+    Args:
+        db (Session): The database session.
+        user (UserCreate): The user data to be created.
+
+    Returns:
+        UserModel: The created user object.
+    """
     db_user = UserModel(
         first_name=user.first_name,
         last_name=user.last_name,

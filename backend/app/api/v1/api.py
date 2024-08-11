@@ -1,8 +1,20 @@
 # Path: backend/app/api/v1/api.py
+"""
+This module defines the API routes for version 1 of the
+invoice management backend.
+
+The API routes include:
+- Authentication routes: /auth
+- Client routes: /clients
+- Invoice routes: /invoices
+- Service routes: /services
+- Invoice Service routes: /invoice_services
+"""
 
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import client, invoice, service, invoice_service, authentication
+from app.api.v1.endpoints import client, invoice, service, \
+    invoice_service, authentication
 
 api_router = APIRouter()
 
