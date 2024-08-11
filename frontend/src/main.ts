@@ -1,19 +1,45 @@
 import { createApp } from "vue";
+import "./style.css";
 import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import PrimeVue from "primevue/config";
-import "primevue/resources/themes/aura-light-blue/theme.css";
-import "primeicons/primeicons.css";
-import Ripple from "primevue/ripple";
-import Menu from "primevue/menu";
-import ProgressSpinner from "primevue/progressspinner";
 
+/**
+ * PrimeVue
+ */
+import PrimeVue from "primevue/config";
+
+/**
+ * The main entry point for the Vue.js application.
+ */
 const app = createApp(App);
-app.use(PrimeVue, { ripple: true });
-app.use(store);
+
+/**
+ * Vue Router
+ */
+import router from "./router";
 app.use(router);
-app.component("PrimeMenu", Menu);
-app.component("ProgressSpinner", ProgressSpinner);
-app.directive("ripple", Ripple);
+
+/**
+ * PrimeVue - Configuration
+ */
+app.use(PrimeVue, { ripple: true, inputStyle: "filled" });
+
+/**
+ * PrimeVue - Theme
+ */
+import "primevue/resources/themes/aura-light-purple/theme.css";
+
+/**
+ * PrimeFlex
+ */
+import "primeflex/primeflex.css";
+
+/**
+ * PrimeIcons
+ */
+
+import "primeicons/primeicons.css";
+
+/**
+ * Mount the Vue.js application to the DOM.
+ */
 app.mount("#app");

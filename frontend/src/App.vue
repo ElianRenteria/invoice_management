@@ -1,52 +1,18 @@
 <template>
-  <div class="container">
-    <component :is="layoutComponent" />
-  </div>
+  <router-view></router-view>
 </template>
 
-<script>
-import { computed } from "vue";
+<style scoped></style>
+
+<script setup lang="ts">
+// import PrivateLayout from "./layouts/PrivateLayout.vue";
+// import PublicLayout from "./layouts/PublicLayout.vue";
 import { useRoute } from "vue-router";
-import PublicLayout from "./app_layouts/PublicLayout.vue";
-import AuthenticatedLayout from "./app_layouts/AuthenticatedLayout.vue";
 
-export default {
-  name: "App",
-  components: {
-    PublicLayout,
-    AuthenticatedLayout,
-  },
-  setup() {
-    const route = useRoute();
-    const isAuthenticated = !!localStorage.getItem("authToken");
-
-    const layoutComponent = computed(() => {
-      if (route.meta.requiresAuth && isAuthenticated) {
-        return "AuthenticatedLayout";
-      } else {
-        return "PublicLayout";
-      }
-    });
-
-    return {
-      layoutComponent,
-    };
-  },
-};
+const route = useRoute();
+const layout = computed(() => {
+  console.log(route);
+  console.log(route.meta.internalLayout);
+  return route.meta.internalLayout ? "PrivateLayout" : "PublicLayout";
+});
 </script>
-
-<style scoped>
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    margin: 0%;
-  }
-  component {
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    margin: 0%;
-  }
-</style>
-

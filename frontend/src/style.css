@@ -1,0 +1,15 @@
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--surface-200);
+}
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--surface-200);	
+}
