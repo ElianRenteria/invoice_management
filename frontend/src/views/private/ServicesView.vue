@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Services</h1>
-        <DataTable v-model:value="services" v-model:filters="filters" data-key="id">
+        <DataTable v-model:value="services" v-model:filters="filters" data-key="id" sortField="price" :sortOrder="1">
             <template #header>
             <div class="flex justify-content-end">
                 <IconField iconPosition="left">
@@ -16,9 +16,9 @@
             </div>
             </template>
             <Column field="name" header="Name"></Column>
-            <Column field="price" header="Price">
-                <template #body="slotProps">
-                    {{ CurrencyFormatter.format(slotProps.data.price) }}
+            <Column field="price" header="Price" sortable>
+                <template #body="{data}">
+                    {{ CurrencyFormatter.format(data.price) }}
                 </template>
             </Column>
         </DataTable>
