@@ -26,6 +26,13 @@
       <span>Clients</span>
     </router-link>
     <router-link
+      to="/services"
+      :class="['nav-link', { active: isActive('Services') }]"
+    >
+      <i class="pi pi-briefcase"></i>
+      <span>Services</span>
+    </router-link>
+    <router-link
       to="/profile"
       :class="['nav-link', { active: isActive('Profile') }]"
     >
@@ -84,6 +91,7 @@
 .nav-link i {
   font-size: 1.5rem;
 }
+
 </style>
 
 <script setup lang="ts">

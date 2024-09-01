@@ -22,6 +22,14 @@ const routes: Array<RouteRecordRaw> = [
           sidebar: () => import("../components/layout/Sidebar.vue"),
         },
       },
+      {
+        path: "services",
+        name: "Services",
+        components: {
+          default: () => import("../views/private/ServicesView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
     ],
     meta: { requiresAuth: true },
   },

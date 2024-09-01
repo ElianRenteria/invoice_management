@@ -1,6 +1,6 @@
 export type Service = {
     id: number;
     name: string;
-    price: number;
+    price: string | number;
 };
   
