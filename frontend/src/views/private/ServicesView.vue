@@ -16,7 +16,11 @@
             </div>
             </template>
             <Column field="name" header="Name"></Column>
-            <Column field="price" header="Price"></Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{ CurrencyFormatter.format(slotProps.data.price) }}
+                </template>
+            </Column>
         </DataTable>
     </div>
 </template>
@@ -34,9 +38,6 @@
   });
   onMounted(async () => {
     services.value = await service.getServices();
-    services.value.forEach((obj) => {
-        obj.price = CurrencyFormatter.format(obj.price);
-    })
 });
 </script>
 
