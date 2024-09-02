@@ -29,7 +29,7 @@
   import { useServices } from "../../composables/useServices";
   import { Service } from "../../types/Service";
   import { FilterMatchMode } from "primevue/api";
-  import CurrencyFormatter from "../../utils/currencyFormatter";
+  import { formatCurrency } from "../../utils/formatters";
   const service = useServices();
   const services = ref<Service[]>([]);
   
