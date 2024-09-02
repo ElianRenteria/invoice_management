@@ -42,7 +42,7 @@
     </div>
     <div
       class="flex justify-content-start align-items-stretch gap-0"
-      style="height: calc(100vh - 6rem)"
+      style="min-height: calc(100vh - 6rem)"
     >
       <router-view name="sidebar" />
       <router-view
