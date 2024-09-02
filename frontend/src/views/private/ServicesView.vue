@@ -18,7 +18,7 @@
             <Column field="name" header="Name"></Column>
             <Column field="price" header="Price" sortable>
                 <template #body="{data}">
-                    {{ CurrencyFormatter.format(data.price) }}
+                    {{ formatCurrency(data.price) }}
                 </template>
             </Column>
         </DataTable>
