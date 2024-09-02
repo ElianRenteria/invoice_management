@@ -13,10 +13,18 @@ export function useCurrentUser() {
     state.user = user_object;
   }
 
+  const initials = computed(() => {
+    if (state.user) {
+      return state.user.first_name[0] + state.user.last_name[0];
+    }
+    return undefined;
+  });
+
   load();
 
   return {
     load,
-    ...state.user,
+    ...state,
+    initials,
   };
 }
