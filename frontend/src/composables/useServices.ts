@@ -5,12 +5,12 @@ export function useServices() {
   const client = new HttpClient();
 
   async function getServices() {
-    const response = await client.get("/services");
+    const response = await client.get("/services/");
     return response.data as Service[];
   }
 
   async function createService(_service: Service) {
-    const response = await client.post("/services", _service);
+    const response = await client.post("/services/", _service);
     return response.data as Service;
   }
 

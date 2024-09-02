@@ -5,12 +5,12 @@ export function useClients() {
   const client = new HttpClient();
 
   async function getClients() {
-    const response = await client.get("/clients");
+    const response = await client.get("/clients/");
     return response.data as Client[];
   }
 
   async function createClient(_client: Client) {
-    const response = await client.post("/clients", _client);
+    const response = await client.post("/clients/", _client);
     return response.data as Client;
   }
 
