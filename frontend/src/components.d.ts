@@ -18,9 +18,11 @@ declare module 'vue' {
     IconField: typeof import('primevue/iconfield')['default']
     InlineMessage: typeof import('primevue/inlinemessage')['default']
     InputIcon: typeof import('primevue/inputicon')['default']
+    InputNumber: typeof import('primevue/inputnumber')['default']
     InputText: typeof import('primevue/inputtext')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ServiceForm: typeof import('./components/services/ServiceForm.vue')['default']
     Sidebar: typeof import('./components/layout/Sidebar.vue')['default']
   }
 }

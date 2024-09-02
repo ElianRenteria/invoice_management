@@ -9,7 +9,13 @@ export function useServices() {
     return response.data as Service[];
   }
 
+  async function createService(_service: Service) {
+    const response = await client.post("/services", _service);
+    return response.data as Service;
+  }
+
   return {
     getServices,
+    createService,
   };
 }

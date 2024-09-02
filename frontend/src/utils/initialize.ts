@@ -1,4 +1,5 @@
 import { Client } from "../types";
+import { Service } from "../types/Service";
 
 export const initializeClient = () => {
   return {
@@ -29,4 +30,13 @@ export const initializeClient = () => {
     billing_address_postal_code: "",
     billing_address_country: "",
   } as Client;
+};
+
+
+export const initializeService = () => {
+  return {
+    id: 0,
+    name: "",
+    price: 0,
+  } as Service;
 };
