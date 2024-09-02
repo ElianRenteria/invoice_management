@@ -49,12 +49,25 @@
         </div>
       </template>
       <Column field="name" header="Name"></Column>
-      <Column field="email" header="Email"></Column>
+      <Column field="company_name" header="Company"></Column>
+      <Column field="industry" header="Industry"></Column>
+      <Column header="Location">
+        <template #body="{ data }">
+          {{ data.address_city }}, {{ data.address_state }}
+        </template>
+      </Column>
+      <Column field="status" header="Status">
+        <template #body="{ data }">
+          <Badge :severity="data.status === 'active' ? 'success' : 'danger'">
+            {{ data.status === "active" ? "Active" : "Inactive" }}
+          </Badge>
+        </template>
+      </Column>
     </DataTable>
     <Dialog
       v-model="newClientDialogVisible"
-      header="New Client"
-      :maximizable="true"
+      :header="selectedClient ? 'Edit Client' : 'New Client'"
+      :maximizable="false"
       :modal="true"
       :visible="newClientDialogVisible"
       @update:visible="newClientDialogVisible = $event"
