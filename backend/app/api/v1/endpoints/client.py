@@ -111,7 +111,7 @@ def update_client(
     db_client = crud.get_client(db, user=current_user, client_id=client_id)
     if db_client is None:
         raise HTTPException(status_code=404, detail="Client not found")
-    return crud.update_client(db=db, client=client)
+    return crud.update_client(db=db, user=current_user, client=client)
 
 
 @router.delete("/{client_id}", response_model=schemas.Client)

@@ -4,6 +4,7 @@ from app.db.models.client import Client as ClientModel
 from app.schemas.client import ClientCreate, ClientUpdate
 from app.db.models.invoice import Invoice as InvoiceModel, InvoiceService as InvoiceServiceModel
 from app.db.models.user import User
+from datetime import datetime, timezone
 
 
 def create_client(db: Session, user: User, client: ClientCreate):
@@ -20,6 +21,7 @@ def create_client(db: Session, user: User, client: ClientCreate):
     """
     db_client = ClientModel(**client.model_dump())
     db_client.created_by = user.id
+    db_client.created_at = datetime.now(tz=timezone.utc)
     db.add(db_client)
     db.commit()
     db.refresh(db_client)
@@ -85,8 +87,9 @@ def update_client(db: Session, user: User, client: ClientUpdate):
         .filter(ClientModel.id == client.id) \
         .first()
     if db_client:
-        db_client.name = client.name
-        db_client.email = client.email
+        for key, value in client.model_dump().items():
+            setattr(db_client, key, value)
+        db_client.updated_at = datetime.now(tz=timezone.utc)
         db.commit()
         db.refresh(db_client)
     return db_client
