@@ -23,10 +23,42 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: "invoices",
+        name: "Invoices",
+        components: {
+          default: () => import("../views/private/InvoicesView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
+      {
         path: "services",
         name: "Services",
         components: {
           default: () => import("../views/private/ServicesView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
+      {
+        path: "profile",
+        name: "Profile",
+        components: {
+          default: () => import("../views/private/ProfileView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
+      {
+        path: "settings",
+        name: "Settings",
+        components: {
+          default: () => import("../views/private/SettingView.vue"),
+          sidebar: () => import("../components/layout/Sidebar.vue"),
+        },
+      },
+      {
+        path: "logout",
+        name: "Logout",
+        components: {
+          default: () => import("../views/private/LogoutView.vue"),
           sidebar: () => import("../components/layout/Sidebar.vue"),
         },
       },

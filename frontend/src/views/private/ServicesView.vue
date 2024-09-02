@@ -1,18 +1,37 @@
 <template>
-  <div>
-    <h1>Services</h1>
-    <DataTable
-      v-model:value="services"
-      v-model:filters="filters"
-      data-key="id"
-      sortField="price"
-      :sortOrder="1"
-      :paginator="true"
-      :rows="10"
-      :rows-per-page-options="[5, 10, 25, 50, 100]"
-    >
-      <template #header>
+    <div>
+        <h1>Services</h1>
+        <DataTable v-model:value="services" v-model:filters="filters" data-key="id" sortField="price" :sortOrder="1" :paginator="true" :rows="10" :rows-per-page-options="[5, 10, 25, 50, 100]">
+            <template #header>
         <div class="flex justify-content-end">
+          <template v-if="selectedService">
+            <div class="flex flex-row gap-3">
+              <!-- Edit Button -->
+              <Button
+                label="Edit"
+                icon="pi pi-pencil"
+                @click="newServiceDialogVisible = true"
+              />
+              <!-- Delete Button -->
+              <Button
+                label="Delete"
+                icon="pi pi-trash"
+                :severity="'danger'"
+                @click=""
+              />
+            </div>
+          </template>
+          <template v-else>
+            <!-- New Service Button -->
+            <Button
+              label="New Service"
+              icon="pi pi-plus"
+              outlined
+              @click="newServiceDialogVisible = true"
+            />
+          </template>
+          <!-- Filter Input Field -->
+
           <IconField iconPosition="left">
             <InputIcon>
               <i class="pi pi-search" />
@@ -24,33 +43,64 @@
           </IconField>
         </div>
       </template>
-      <Column field="name" header="Name"></Column>
-      <Column field="price" header="Price" sortable>
-        <template #body="{ data }">
-          {{ formatCurrency(data.price) }}
-        </template>
-      </Column>
-    </DataTable>
-    <p class="text-center text-color-secondary">
-      Total Results: {{ services.length }}
-    </p>
-  </div>
+            <Column field="name" header="Name"></Column>
+            <Column field="price" header="Price" sortable>
+                <template #body="{data}">
+                    {{ formatCurrency(data.price) }}
+                </template>
+            </Column>
+        </DataTable>
+        <Dialog
+        v-model="newServiceDialogVisible"
+        header="New Service"
+        :maximizable="true"
+        :modal="true"
+        :visible="newServiceDialogVisible"
+        @update:visible="newServiceDialogVisible = $event"
+        >
+        <ServiceForm
+            :service="selectedService"
+            @save="
+            newServiceDialogVisible = false;
+            loadServices();
+            "
+        />
+        </Dialog>
+        <p class="text-center text-color-secondary">
+          Total Results: {{ services.length }}
+        </p>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { useServices } from "../../composables/useServices";
-import { Service } from "../../types/Service";
-import { FilterMatchMode } from "primevue/api";
-import { formatCurrency } from "../../utils/formatters";
-const service = useServices();
-const services = ref<Service[]>([]);
+  import { useServices } from "../../composables/useServices";
+  import { Service } from "../../types/Service";
+  import { FilterMatchMode } from "primevue/api";
+  import { formatCurrency } from "../../utils/formatters";
+  import { onKeyStroke } from "@vueuse/core";
 
-const filters = ref({
-  global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-});
-onMounted(async () => {
-  services.value = await service.getServices();
-});
+  const service = useServices();
+  const services = ref<Service[]>([]);
+  const selectedService = ref<Service | undefined>(undefined);
+  const newServiceDialogVisible = ref(false);
+  
+  const filters = ref({
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  });
+
+  const loadServices = () => {
+    service.getServices().then((data) => {
+        services.value = data;
+    });
+    };
+
+    onKeyStroke("Escape", () => {
+        selectedService.value = undefined;
+    });
+    onMounted(async () => {
+        services.value = await service.getServices();
+    });
+
 </script>
 
 <style scoped></style>
