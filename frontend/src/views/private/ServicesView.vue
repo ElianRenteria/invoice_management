@@ -1,9 +1,9 @@
 <template>
     <div>
         <h1>Services</h1>
-        <DataTable v-model:value="services" v-model:filters="filters" data-key="id" sortField="price" :sortOrder="1">
+        <DataTable v-model:value="services" v-model:filters="filters" data-key="id" sortField="price" :sortOrder="1" :paginator="true" :rows="10" :rows-per-page-options="[5, 10, 25, 50, 100]">
             <template #header>
-        <div class="flex justify-content-between">
+        <div class="flex justify-content-end">
           <template v-if="selectedService">
             <div class="flex flex-row gap-3">
               <!-- Edit Button -->
@@ -31,6 +31,7 @@
             />
           </template>
           <!-- Filter Input Field -->
+
           <IconField iconPosition="left">
             <InputIcon>
               <i class="pi pi-search" />
@@ -65,9 +66,12 @@
             "
         />
         </Dialog>
+        <p class="text-center text-color-secondary">
+          Total Results: {{ services.length }}
+        </p>
     </div>
 </template>
-  
+
 <script setup lang="ts">
   import { useServices } from "../../composables/useServices";
   import { Service } from "../../types/Service";
@@ -96,9 +100,7 @@
     onMounted(async () => {
         services.value = await service.getServices();
     });
+
 </script>
 
-<style scoped>
-  
-
-</style>
+<style scoped></style>

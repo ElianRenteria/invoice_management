@@ -8,12 +8,14 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
     Checkbox: typeof import('primevue/checkbox')['default']
     ClientForm: typeof import('./components/clients/ClientForm.vue')['default']
     Column: typeof import('primevue/column')['default']
     DataTable: typeof import('primevue/datatable')['default']
     Dialog: typeof import('primevue/dialog')['default']
+    Divider: typeof import('primevue/divider')['default']
     Dropdown: typeof import('primevue/dropdown')['default']
     IconField: typeof import('primevue/iconfield')['default']
     InlineMessage: typeof import('primevue/inlinemessage')['default']
@@ -25,5 +27,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     ServiceForm: typeof import('./components/services/ServiceForm.vue')['default']
     Sidebar: typeof import('./components/layout/Sidebar.vue')['default']
+    Textarea: typeof import('primevue/textarea')['default']
   }
 }
