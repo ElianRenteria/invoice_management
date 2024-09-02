@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
+from datetime import date
 
 
 class UserBase(BaseModel):
@@ -11,8 +12,9 @@ class UserBase(BaseModel):
         last_name (Optional[str]): The last name of the user. Defaults to None.
         email (EmailStr): The email address of the user.
     """
-    first_name: Optional[str] = None
-    last_name: Optional[str] = None
+    first_name: str
+    last_name: str
+    date_of_birth: date
     email: EmailStr
 
 
