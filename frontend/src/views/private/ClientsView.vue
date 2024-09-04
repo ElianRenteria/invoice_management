@@ -23,7 +23,7 @@
                 label="Delete"
                 icon="pi pi-trash"
                 :severity="'danger'"
-                @click=""
+                @click="deleteClient();"
               />
             </div>
           </template>
@@ -97,6 +97,12 @@ const newClientDialogVisible = ref(false);
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 });
+
+const deleteClient = () => {
+  service.deleteClient().then((data) => {
+    clients.value = data;
+  });
+};
 
 const loadClients = () => {
   service.getClients().then((data) => {

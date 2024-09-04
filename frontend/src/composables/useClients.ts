@@ -19,9 +19,15 @@ export function useClients() {
     return response.data as Client;
   }
 
+  async function deleteClient(_client: Client) {
+    const response = await client.delete(`/clients/${_client.id}`, _client);
+    return response.data as Client;
+  }
+
   return {
     getClients,
     createClient,
     updateClient,
+    deleteClient,
   };
 }
