@@ -14,8 +14,14 @@ export function useServices() {
     return response.data as Service;
   }
 
+  async function updateService(_service: Service) {
+    const response = await client.put(`/services/${_service.id}`, _service);
+    return response.data as Service;
+  }
+
   return {
     getServices,
     createService,
+    updateService,
   };
 }

@@ -33,7 +33,7 @@
   import { watchImmediate } from "@vueuse/core";
   
   // Import the createService function from the composable
-  const { createService } = useServices();
+  const { createService, updateService } = useServices();
   
   // Define props with default value
   const props = defineProps({
@@ -64,7 +64,7 @@
   const saveService = async () => {
     if (editMode.value) {
       // Update Service
-      // await updateService(props.service);
+      await updateService(props.service);
     } else {
       // Create Service
       await createService(props.service);

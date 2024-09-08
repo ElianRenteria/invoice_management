@@ -86,8 +86,9 @@ def read_services(
     return services
 
 
-@router.put("/", response_model=schemas.Service)
+@router.put("/{service_id}", response_model=schemas.Service)
 def update_service(
+    service_id: int,
     service: schemas.ServiceUpdate,
     db: Session = Depends(deps.get_db),
     current_user: User = Depends(deps.get_current_user)
@@ -108,7 +109,7 @@ def update_service(
     Returns:
         The updated service.
     """
-    db_service = crud.get_service(db, user=current_user, service_id=service.id)
+    db_service = crud.get_service(db, user=current_user, service_id=service_id)
     if db_service is None:
         raise HTTPException(status_code=404, detail="Service not found")
     return crud.update_service(db=db, user=current_user, service=service)

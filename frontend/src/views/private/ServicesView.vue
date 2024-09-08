@@ -4,6 +4,8 @@
     <DataTable
       v-model:value="services"
       v-model:filters="filters"
+      v-model:selection="selectedService"
+      :selection-mode="'single'"
       data-key="id"
       sortField="price"
       :sortOrder="1"
