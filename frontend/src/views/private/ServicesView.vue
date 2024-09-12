@@ -28,7 +28,7 @@
                 label="Delete"
                 icon="pi pi-trash"
                 :severity="'danger'"
-                @click="deleteService(selectedService);"
+                @click="deleteService(selectedService)"
               />
             </div>
           </template>
@@ -63,7 +63,7 @@
     </DataTable>
     <Dialog
       v-model="newServiceDialogVisible"
-      header="New Service"
+      :header="selectedService ? 'Edit Service' : 'New Service'"
       :maximizable="true"
       :modal="true"
       :visible="newServiceDialogVisible"
@@ -116,8 +116,9 @@ const loadServices = () => {
 onKeyStroke("Escape", () => {
   selectedService.value = undefined;
 });
-onMounted(async () => {
-  services.value = await service.getServices();
+
+onMounted(() => {
+  loadServices();
 });
 </script>
 
