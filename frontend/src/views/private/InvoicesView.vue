@@ -7,6 +7,9 @@
         v-model:selection="selectedInvoice"
         :selection-mode="'single'"
         data-key="id"
+        :paginator="true"
+        :rows="10"
+        :rows-per-page-options="[5, 10, 25, 50, 100]"
       >
         <template #header>
           <div class="flex justify-content-between">
