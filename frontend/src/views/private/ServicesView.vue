@@ -4,6 +4,8 @@
     <DataTable
       v-model:value="services"
       v-model:filters="filters"
+      v-model:selection="selectedService"
+      :selection-mode="'single'"
       data-key="id"
       sortField="price"
       :sortOrder="1"
@@ -26,7 +28,7 @@
                 label="Delete"
                 icon="pi pi-trash"
                 :severity="'danger'"
-                @click=""
+                @click="deleteService(selectedService);"
               />
             </div>
           </template>
@@ -71,6 +73,7 @@
         :service="selectedService"
         @save="
           newServiceDialogVisible = false;
+          selectedService = undefined;
           loadServices();
         "
       />
@@ -96,6 +99,13 @@ const newServiceDialogVisible = ref(false);
 const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 });
+
+const deleteService = (chosenService: Service) => {
+  service.deleteService(chosenService).then(() => {
+    loadServices();
+    selectedService.value = undefined;
+  });
+};
 
 const loadServices = () => {
   service.getServices().then((data) => {
