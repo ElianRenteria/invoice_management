@@ -32,5 +32,6 @@ declare module 'vue' {
     ServiceForm: typeof import('./components/services/ServiceForm.vue')['default']
     Sidebar: typeof import('./components/layout/Sidebar.vue')['default']
     Textarea: typeof import('primevue/textarea')['default']
+    Toast: typeof import('primevue/toast')['default']
   }
 }

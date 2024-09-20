@@ -48,6 +48,7 @@
       <router-view
         class="w-full surface-ground border-round-3xl border-noround-right p-3"
       />
+      <Toast />
     </div>
   </div>
 </template>
