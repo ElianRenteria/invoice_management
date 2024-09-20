@@ -40,6 +40,12 @@ import "primeflex/primeflex.css";
 import "primeicons/primeicons.css";
 
 /**
+ * Toast Service
+ */
+import ToastService from "primevue/toastservice";
+app.use(ToastService);
+
+/**
  * Mount the Vue.js application to the DOM.
  */
 app.mount("#app");
