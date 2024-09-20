@@ -26,7 +26,7 @@
                 label="Delete"
                 icon="pi pi-trash"
                 :severity="'danger'"
-                @click="deleteClient(selectedClient);"
+                @click="deleteClient(selectedClient)"
               />
             </div>
           </template>
