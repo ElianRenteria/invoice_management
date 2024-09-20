@@ -4,7 +4,7 @@ import HttpClient from "../utils/httpClient";
 
 export function useClients() {
   const client = new HttpClient();
-  const toastService = useToastService();
+  const toast = useToastService();
 
   async function getClients() {
     try {
@@ -14,7 +14,7 @@ export function useClients() {
       }
       return response.data as Client[];
     } catch (error: Error | any) {
-      toastService.present("error", error, {
+      toast.present("error", error, {
         title: "Load Failed",
       });
     }
@@ -23,7 +23,7 @@ export function useClients() {
   async function createClient(_client: Client) {
     try {
       const response = await client.post("/clients/", _client);
-      toastService.present(
+      toast.present(
         response.status === 200 ? "success" : "error",
         `${_client.name} ${response.status === 200 ? "created successfully" : "failed to create"}.`,
         {
@@ -33,7 +33,7 @@ export function useClients() {
       );
       return response.data as Client;
     } catch (error: Error | any) {
-      toastService.present("error", error, {
+      toast.present("error", error, {
         title: "Creation Failed",
       });
     }
@@ -42,7 +42,7 @@ export function useClients() {
   async function updateClient(_client: Client) {
     try {
       const response = await client.put(`/clients/${_client.id}`, _client);
-      toastService.present(
+      toast.present(
         response.status === 200 ? "success" : "error",
         `${_client.name} ${response.status === 200 ? "updated successfully" : "failed to update"}.`,
         {
@@ -52,7 +52,7 @@ export function useClients() {
       );
       return response.data as Client;
     } catch (error: Error | any) {
-      toastService.present("error", error, {
+      toast.present("error", error, {
         title: "Update Failed",
       });
     }
@@ -61,7 +61,7 @@ export function useClients() {
   async function deleteClient(_client: Client) {
     try {
       const response = await client.delete(`/clients/${_client.id}`);
-      toastService.present(
+      toast.present(
         response.status === 200 ? "success" : "error",
         `${_client.name} ${response.status === 200 ? "deleted successfully" : "failed to delete"}.`,
         {
@@ -71,7 +71,7 @@ export function useClients() {
       );
       return response.data as Client;
     } catch (error: Error | any) {
-      toastService.present("error", error, {
+      toast.present("error", error, {
         title: "Deletion Failed",
       });
     }
