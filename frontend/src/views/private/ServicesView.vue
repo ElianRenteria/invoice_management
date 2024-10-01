@@ -64,7 +64,7 @@
     <Dialog
       v-model="newServiceDialogVisible"
       :header="selectedService ? 'Edit Service' : 'New Service'"
-      :maximizable="true"
+      :maximizable="false"
       :modal="true"
       :visible="newServiceDialogVisible"
       @update:visible="newServiceDialogVisible = $event"
