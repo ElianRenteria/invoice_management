@@ -8,7 +8,16 @@
 
     <div class="flex flex-column gap-2">
       <label for="invoice-date">Date</label>
-      <Calendar id="invoice-date" v-model="date" dateFormat="dd/mm/yy"/>
+      <Calendar 
+        id="invoice-date" 
+        v-model="date" 
+        showIcon 
+        showButtonBar
+        dateFormat="dd/mm/yy" 
+        inputId="invoiceDate"
+        :manual-input="false"
+        selectionMode="single"
+      />
     </div>
     
     <div id="label" class="flex flex-row gap-4">
@@ -27,4 +36,5 @@
 <script setup lang="ts">
   const name = undefined;
   const date = undefined;
+  const invoiceDate = ref();
 </script>
