@@ -1,5 +1,6 @@
 import { Client } from "../types";
 import { Service } from "../types/Service";
+import { Invoice } from "../types/Invoice";
 
 export const initializeClient = () => {
   return {
@@ -32,11 +33,23 @@ export const initializeClient = () => {
   } as Client;
 };
 
-
 export const initializeService = () => {
   return {
     id: 0,
     name: "",
     price: 0,
   } as Service;
+};
+
+export const initializeInvoice = () => {
+  return {
+    id: 0,
+    name: "",
+    date: new Date(),
+    amount: 0,
+    services: undefined,
+    created_at: new Date(),
+    updated_at: new Date(),
+    status: "DRAFT",
+  } as Invoice;
 };
